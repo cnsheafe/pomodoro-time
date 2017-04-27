@@ -1,0 +1,9 @@
+language: node_js
+node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: rPGIib91DqpdqBao+PPqH2JN2Fc9BXCPKByCFxsorSeR/KkRBV5lp2B/UijnVqVJilHpppPhVhoFXp9BDaUm2f2LVTLECT0r4AtUAXWSA9pjsmxm/AY8yTRekC5ZlpMpxwud2X3fEgiRRd8y/oaWuVXLZTFL8oP4lxpIlGkjLjNldniI6+PP4HaTuJl0eliakqkjymS/u3qTh/PMETZNG8zV6qceaVSlvssaTT0W3ivto45LCQKWpDgXLlseqg63OQj8Om9Qv2S4WqeDNzQeWpxAcuLfMk+dE9QyR+H3GaLkJt8iQ3osdUrmuLJiQrhf0Eo7kY0dZsSSjfFcfqVW4XEvdzHUioL1V6uekFx2wKLSUGRpaUMnWkMGNR4ZwZpmi2P2JprqMF8/M6QbkztlpsIWKbPEMDVGzmjT4Duvw3Jf0mNe7HDaqEQh0q264szsj94L+jleCBE/+rkM+djO47oS9xpdWGn1nQkmrQLjNuPsVdkhErqlFgz4KcLS5/ZoJL35HNpVRamQEeN+ZejnRC6RkY+noPzPz7kM4GLSytf9UslKDx6cV/lrgm+MF4V6D1WuuHs9JKImZiuvMHvpEuekaLZqKMmz16A8+cJH72fMn4bVUyZf0yqRdmYRikL5BlVymNifIbPIIF1DMxxCJrOStqoCvDqsCRwY8HM6XRs=
+  app: pomodoro-time-keeper
+  on:
+    repo: cnsheafe/pomodoro-time
