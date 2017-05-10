@@ -1,0 +1,86 @@
+header>.title {
+  display: inline-block;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+header > button {
+  float:right;
+  margin: 10px 10px auto auto;
+}
+
+header {
+  background-color: #ff194d;
+  color: #0fff34;
+  padding-bottom: 10px;
+}
+.wrapper {
+  width: 100px;
+  height: 100px;
+}
+
+.timer {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  border: 2px solid green;
+}
+.spinner {
+  /*Replace 'clip' with 'clip-path' when firefox supports*/
+  clip: rect(auto 50px auto auto);
+  border-radius: 50%;
+  animation: rota 10s linear 1 forwards;
+  z-index: 100;
+}
+
+.filler {
+  clip: rect(auto auto auto 50px);
+  border-radius: 50%;
+  animation: fill 5s steps(1, end) 1;
+  z-index: 300;
+  animation-fill-mode: forwards;
+}
+
+.mask-left {
+  clip: rect(auto 50px auto auto);
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  z-index: 200;
+  opacity: 1;
+  background: white;
+  animation: mask-left 10s steps(1,end) 1;
+  animation-fill-mode: forwards;
+}
+
+.mask-right {
+  clip: rect(auto auto auto 50px);
+  width: 100px;
+  height: 200px;
+  position: absolute;
+  z-index: 100;
+  opacity: 0;
+  background: white;
+  animation: mask-right 10s steps(1,end) 1;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rota {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes fill {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes mask-left {
+  0% {opacity: 1;}
+  50%, 100% {opacity: 0;}
+}
+
+@keyframes mask-right {
+  0% {opacity: 0;}
+  50%, 100% {opacity: 1;}
+}
