@@ -25,34 +25,23 @@ header {
   clip: rect(auto 150px auto auto);
   border-radius: 50%;
   /*animation: rota 10s linear 1 forwards;*/
-  z-index: 250;
+  z-index: 200;
   border: 2px solid green;
 }
 
 .filler {
-  clip: rect(auto auto auto 150px);
+  clip: rect(auto 150px auto auto);
   border-radius: 50%;
   /*animation: fill 5s steps(1, end) 1;*/
-  z-index: 150;
+  z-index: 250;
   animation-fill-mode: forwards;
   border: 2px solid green;
 }
-
-.mask-left {
+.mask {
   clip: rect(auto 150px auto auto);
   z-index: 300;
   opacity: 1;
   background: white;
-  /*animation: mask-left 10s steps(1,end) 1;*/
-  animation-fill-mode: forwards;
-}
-
-.mask-right {
-  clip: rect(auto auto auto 150px);
-  z-index: 200;
-  opacity: 1;
-  background: white;
-  /*animation: mask-right 10s steps(1,end) 1;*/
   animation-fill-mode: forwards;
 }
 
@@ -84,16 +73,13 @@ form.timer {
 }
 
 @keyframes fill {
-  0% {opacity: 0;}
-  100% {opacity: 1;}
+  0% {clip: rect(auto 150px auto auto);}
+  100% {clip: rect(auto auto auto 150px);}
 }
 
-@keyframes mask-left {
-  0% {opacity: 1;}
-  50%, 100% {opacity: 0;}
-}
-
-@keyframes mask-right {
-  0% {opacity: 0;}
-  50%, 100% {opacity: 1;}
+@keyframes mask {
+  /*0% {z-index: 300;}*/
+0% {clip: rect(auto 150px auto auto); z-index: 300;}
+  100% {clip: rect(auto auto auto 150px);z-index: 225;}
+  /*100% {z-index: 200;}*/
 }
