@@ -2,6 +2,14 @@
 <html lang="en">
 <!-- <p>Hello World</p> -->
 <head>
+  <title>PomodoroTime</title>
+  <!-- Meta-data and other general info -->
+  <meta charset="utf-8">
+  <meta name="description" content="A Time-management App">
+  <meta name="author" content="Christofer Sheafe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="application-name" content="PomodoroTime">
+  <meta name="keywords" content="Pomodoro,productivity,time,free">
   <!-- Latest compiled and minfied Bootstrap CSS -->
   <link
     rel="stylesheet"
@@ -20,14 +28,7 @@
     crossorigin="anonymous" defer></script>
   <!-- App-specific JS -->
   <script src="app.min.js" defer></script>
-  <!-- Meta-data and other general info -->
-  <title>PomodoroTime</title>
-  <meta name="description" content="A Time-management App">
-  <meta name="author" content="Christofer Sheafe">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="application-name" content="PomodoroTime">
-  <meta name="keywords" content="Pomodoro,productivity,time,free">
-</head>
+  </head>
 
 <body>
   <header class="container-fluid">
@@ -38,15 +39,18 @@
   <main class="container">
     <section class="row">
       <div class="col-xs-12">
-        <div class="spinner timer"></div>
-        <div class="filler timer"></div>
-        <div class="mask-left timer"></div>
-        <div class="mask-right timer"></div>
-        <form class="timer">
-          <div class="clock">
-            <input type="time">
-          </div>
-        </form>
+        <div id="wrapper">
+          <div class="spinner timer"></div>
+          <div class="filler timer"></div>
+          <div class="mask-left timer"></div>
+          <div class="mask-right timer"></div>
+          <form class="timer">
+            <div class="clock">
+              <input id="countdown" type="time">
+              <label for="countdown">mins</label>
+            </div>
+          </form>
+        </div>
       </div>
     </section>
   </main>
