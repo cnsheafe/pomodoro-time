@@ -22,27 +22,25 @@ header {
 }
 .spinner {
   /*Replace 'clip' with 'clip-path' when firefox supports*/
-  clip: rect(auto 150px auto auto);
+  /*clip: rect(auto 150px auto auto);
   border-radius: 50%;
-  /*animation: rota 10s linear 1 forwards;*/
   z-index: 200;
-  border: 2px solid green;
+  border: 2px solid green;*/
 }
 
 .filler {
-  clip: rect(auto 150px auto auto);
+  /*clip: rect(auto 150px auto auto);
   border-radius: 50%;
-  /*animation: fill 5s steps(1, end) 1;*/
   z-index: 250;
   animation-fill-mode: forwards;
-  border: 2px solid green;
+  border: 2px solid green;*/
 }
 .mask {
-  clip: rect(auto 150px auto auto);
+  /*clip: rect(auto 150px auto auto);
   z-index: 300;
   opacity: 1;
   background: white;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards;*/
 }
 
 form.timer {
@@ -78,8 +76,6 @@ form.timer {
 }
 
 @keyframes mask {
-  /*0% {z-index: 300;}*/
-0% {clip: rect(auto 150px auto auto); z-index: 300;}
+  0% {clip: rect(auto 150px auto auto); z-index: 300;}
   100% {clip: rect(auto auto auto 150px);z-index: 225;}
-  /*100% {z-index: 200;}*/
 }
