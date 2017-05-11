@@ -25,7 +25,7 @@ header {
   clip: rect(auto 150px auto auto);
   border-radius: 50%;
   /*animation: rota 10s linear 1 forwards;*/
-  z-index: 100;
+  z-index: 250;
   border: 2px solid green;
 }
 
@@ -33,14 +33,14 @@ header {
   clip: rect(auto auto auto 150px);
   border-radius: 50%;
   /*animation: fill 5s steps(1, end) 1;*/
-  z-index: 300;
+  z-index: 150;
   animation-fill-mode: forwards;
   border: 2px solid green;
 }
 
 .mask-left {
   clip: rect(auto 150px auto auto);
-  z-index: 200;
+  z-index: 300;
   opacity: 1;
   background: white;
   /*animation: mask-left 10s steps(1,end) 1;*/
@@ -49,8 +49,8 @@ header {
 
 .mask-right {
   clip: rect(auto auto auto 150px);
-  z-index: 100;
-  opacity: 0;
+  z-index: 200;
+  opacity: 1;
   background: white;
   /*animation: mask-right 10s steps(1,end) 1;*/
   animation-fill-mode: forwards;
