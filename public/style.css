@@ -24,7 +24,7 @@ header {
   /*Replace 'clip' with 'clip-path' when firefox supports*/
   clip: rect(auto 150px auto auto);
   border-radius: 50%;
-  animation: rota 10s linear 1 forwards;
+  /*animation: rota 10s linear 1 forwards;*/
   z-index: 100;
   border: 2px solid green;
 }
@@ -32,7 +32,7 @@ header {
 .filler {
   clip: rect(auto auto auto 150px);
   border-radius: 50%;
-  animation: fill 5s steps(1, end) 1;
+  /*animation: fill 5s steps(1, end) 1;*/
   z-index: 300;
   animation-fill-mode: forwards;
   border: 2px solid green;
@@ -43,7 +43,7 @@ header {
   z-index: 200;
   opacity: 1;
   background: white;
-  animation: mask-left 10s steps(1,end) 1;
+  /*animation: mask-left 10s steps(1,end) 1;*/
   animation-fill-mode: forwards;
 }
 
@@ -52,7 +52,7 @@ header {
   z-index: 100;
   opacity: 0;
   background: white;
-  animation: mask-right 10s steps(1,end) 1;
+  /*animation: mask-right 10s steps(1,end) 1;*/
   animation-fill-mode: forwards;
 }
 
@@ -64,13 +64,19 @@ form.timer {
   width: 150px;
   height: 50px;
   position: absolute;
-  left: 75px;
-  top: 100px;
+  left: 95px;
+  top: 115px;
 }
 
 .clock input {
-  width: 100%;
+  width: 100px;
   height: 100%;
+  text-align: center;
+  font-size: 40px;
+}
+.clock label {
+  margin-bottom: 0;
+  vertical-align: bottom;
 }
 @keyframes rota {
   0% {transform: rotate(0deg);}
