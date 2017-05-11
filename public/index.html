@@ -1,4 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<p>Hello World</p>
+<!-- <p>Hello World</p> -->
+<head>
+  <title>PomodoroTime</title>
+  <!-- Meta-data and other general info -->
+  <meta charset="utf-8">
+  <meta name="description" content="A Time-management App">
+  <meta name="author" content="Christofer Sheafe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="application-name" content="PomodoroTime">
+  <meta name="keywords" content="Pomodoro,productivity,time,free">
+  <!-- Latest compiled and minfied Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+  <!-- App-specific CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- jQuery necessary for bootstrap Javascript -->
+  <script
+	  src="http://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous" defer></script>
+  <!-- Latest compiled and minified bootstrap JavaScript -->
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous" defer></script>
+  <!-- App-specific JS -->
+  <script src="app.min.js" defer></script>
+  </head>
+
+<body>
+  <header class="container-fluid">
+    <h1 class="text-center title">PomodoroTime</h1>
+    <button type="button" class="btn btn-default">Signup/Login</button>
+  </header>
+
+  <main class="container">
+    <section class="row">
+      <div class="col-xs-12">
+        <div id="wrapper">
+          <div class="spinner timer"></div>
+          <div class="filler timer"></div>
+          <div class="mask timer"></div>
+          <form class="timer">
+            <div class="clock">
+              <input id="countdown" type="time">
+              <label for="countdown">mins</label>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
 </html>
