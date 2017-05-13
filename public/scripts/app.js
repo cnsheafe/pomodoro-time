@@ -2,7 +2,6 @@ const jss = require('./jss');
 
 
 let clockDOM = document.querySelector('form.timer');
-
 const spinnerJSS = {
   'clip': 'rect(auto 150px auto auto)',
   'border-radius': '50%',
@@ -26,9 +25,8 @@ clockDOM.addEventListener('submit', function(event) {
   // let
   jss.remove();
   let elm = document.getElementById('wrapper').firstElementChild;
-//elm.offsetWidth triggers layout reflow to reset the animation 
+//elm.offsetWidth triggers layout reflow to reset the animation
   void elm.offsetWidth;
-
   void elm.nextElementSibling.offsetWidth;
   void elm.nextElementSibling.nextElementSibling.offsetWidth;
 
@@ -46,4 +44,8 @@ clockDOM.addEventListener('submit', function(event) {
       'animation': timerComponents[cssClass]
     });
   }
+  const timeout = window.setTimeout(function () {
+    const alarm = new Audio('audio/alarm.mp3');
+    alarm.play();
+  }, timeLimit*1000);
 });
