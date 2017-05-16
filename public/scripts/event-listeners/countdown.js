@@ -6,7 +6,7 @@ function countdownListener(clockDOM){
     event.preventDefault();
     const timeLimit = document.getElementById('countdown').value*60;
     const objectiveStatement = document.getElementById('objective-statement').value;
-    renderTimer(timeLimit);
+    renderTimer(timeLimit, document.getElementById('wrapper'));
 
     let stopwatchButton = document.getElementById('stopwatch-btn');
     stopwatchButton.innerHTML = 'Stop';
