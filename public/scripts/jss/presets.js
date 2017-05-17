@@ -2,7 +2,7 @@ const spinnerJss = {
   'clip': 'rect(auto 150px auto auto)',
   'border-radius': '50%',
   'z-index': '200',
-  'border': '2px solid green'
+  'border': '5px solid green'
 };
 
 
