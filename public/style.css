@@ -43,6 +43,49 @@ header {
   animation-fill-mode: forwards;*/
 }
 
+.background-border-left {
+  clip: rect(auto 150px auto auto);
+  border: 5px solid #E0E0E0;
+  border-radius: 50%;
+  z-index: 350;
+}
+
+.background-border-right {
+  clip: rect(auto auto auto 150px);
+  border: 5px solid #E0E0E0;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+@keyframes rota {
+  0% {transform: rotate(0deg);}
+  100% {transform: rotate(360deg);}
+}
+
+@keyframes fill {
+  0% {clip: rect(auto 150px auto auto);}
+  100% {clip: rect(auto auto auto 150px);}
+}
+
+@keyframes mask {
+  0% {clip: rect(auto 150px auto auto); z-index: 300;}
+  100% {clip: rect(auto auto auto 150px);z-index: 225;}
+}
+
+@keyframes border-ring {
+  0% {z-index: 350;}
+  100% {z-index: 150;}
+}
+
+.glyphicon-play {
+  font-size: 80px;
+  top: 110px;
+  left: 115px;
+  border: 0;
+  background: none;
+  z-index: 400;
+}
+
 form.timer {
   z-index: 600;
 }
@@ -65,22 +108,9 @@ form.timer {
   margin-bottom: 0;
   vertical-align: bottom;
 }
-@keyframes rota {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(360deg);}
-}
 
-@keyframes fill {
-  0% {clip: rect(auto 150px auto auto);}
-  100% {clip: rect(auto auto auto 150px);}
-}
 
-@keyframes mask {
-  0% {clip: rect(auto 150px auto auto); z-index: 300;}
-  100% {clip: rect(auto auto auto 150px);z-index: 225;}
-}
-
-#wrapper {
+.wrapper {
   height: 300px;
   margin-bottom: 20px;
 }
