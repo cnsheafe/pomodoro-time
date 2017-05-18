@@ -77,15 +77,18 @@ header {
   100% {z-index: 150;}
 }
 
-.glyphicon-play {
+.glyphicon-play, .glyphicon-stop {
   font-size: 80px;
   top: 110px;
-  left: 115px;
+  left: 110px;
   border: 0;
   background: none;
   z-index: 400;
 }
 
+.glyphicon-stop {
+  left: 100px;
+}
 form.timer {
   z-index: 600;
 }
