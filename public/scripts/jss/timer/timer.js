@@ -1,7 +1,9 @@
-const jss = require('../jss.min');
+// const jss = require('../jss.min');
 const reflow = require('../reflow');
 const {spinnerJss, maskJss, fillerJss} = require('../presets');
-function renderTimer(duration, wrapperElement) {
+const {togglePlayButton} = require('../../render/toggle-play-button');
+
+function renderTimer(duration, wrapperElement,jss) {
   jss.remove();
   reflow.timer(wrapperElement.firstElementChild);
   jss.set('.spinner',spinnerJss);
