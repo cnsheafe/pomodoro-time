@@ -81,25 +81,18 @@
           <div class="form-group">
             <label for="countdown-work" class="control-label col-xs-2">Work</label>
             <div class="col-xs-1">
-              <input id="countdown-work" type="time" class="form-control">
+              <input id="countdown-work" type="number" class="form-control" required="" max="60" value="25" autocomplete="off">
             </div>
           </div>
           <div class="form-group">
             <label for="countdown-break" class="control-label col-xs-2">Break</label>
             <div class="col-xs-1">
-              <input id="countdown-break" type="time" class="form-control">
+              <input id="countdown-break" type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
             </div>
           </div>
         </form>
       </div>
     </section>
-    <!-- <section class="row">
-      <div class="col-xs-12" id="objective">
-        <label for="objective-statement">Objective Statement</label>
-        <textarea id="objective-statement" rows="4" cols="80" form="stopwatch" placeholder="I want to..."></textarea>
-        <button id="stopwatch-btn" type="submit" form="stopwatch-work">Start</button>
-      </div>
-    </section> -->
   </main>
 </body>
 </html>
