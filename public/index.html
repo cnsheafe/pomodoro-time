@@ -51,38 +51,46 @@
             <div class="svg-ic_mood_24px mood-feedback" data-mood="good"></div>
             <div class="svg-ic_mood_bad_24px mood-feedback" data-mood="bad"></div>
             <div class="svg-ic_sentiment_neutral_24px mood-feedback" data-mood="ok"></div>
-          <div>
-            <h3>Session Note(optional)</h3>
-          <textarea id="session-notes" rows="4" cols="40" disabled=""></textarea>
-          </div>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal">Begin Break</button>
           </form>
+          <div id="modal-note" class="hidden">
+            <h3>Session Note(optional)</h3>
+            <textarea id="session-notes" rows="4" cols="40" placeholder="I think..."></textarea>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal" form="modal-submit">Begin Break</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <main class="container">
 
+  <main class="container">
     <section class="row">
-      <div class="col-xs-12">
-        <div id="wrapper">
-          <div class="spinner timer"></div>
-          <div class="filler timer"></div>
-          <div class="mask timer"></div>
-          <form id="stopwatch" class="timer">
-            <div class="clock">
-              <input id="countdown" type="time">
-              <label for="countdown">mins</label>
-            </div>
-          </form>
+      <div id="stopwatch-display" class="col-xs-12 wrapper">
+        <div class="spinner timer"></div>
+        <div class="filler timer"></div>
+        <div class="mask timer"></div>
+        <div class="background-border-left timer"></div>
+        <div class="background-border-right timer"></div>
+        <div class="timer">
+          <button type="submit" form="stopwatch" class="glyphicon-play glyphicon">
+          </button>
         </div>
       </div>
-    </section>
     <section class="row">
-      <div class="col-xs-12" id="objective">
-        <label for="objective-statement">Objective Statement</label>
-        <textarea id="objective-statement" rows="4" cols="80" form="stopwatch" placeholder="I want to..."></textarea>
-        <button id="stopwatch-btn" type="submit" form="stopwatch">Start</button>
+      <div class="col-xs-12 wrapper">
+        <form id="stopwatch" class="form-horizontal">
+          <div class="form-group">
+            <label for="countdown-work" class="control-label col-xs-2">Work</label>
+            <div class="col-xs-1">
+              <input id="countdown-work" type="number" class="form-control" required="" max="60" value="25" step="5" autocomplete="off">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="countdown-break" class="control-label col-xs-2">Break</label>
+            <div class="col-xs-1">
+              <input id="countdown-break" type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
+            </div>
+          </div>
+        </form>
       </div>
     </section>
   </main>
