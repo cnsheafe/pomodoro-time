@@ -7,16 +7,16 @@ function countdownListener(clockDOM, state, jss){
     event.preventDefault();
     const wrapperElement = document.getElementById('stopwatch-display');
     if(wrapperElement.querySelector('.glyphicon-play')) {
-      const timeLimit = document.getElementById('countdown-work').value*60;
-
-      renderTimer(timeLimit, document.getElementById('stopwatch-display'), jss);
+      state.settings.work = document.getElementById('countdown-work').value*60;
+      state.settings.break = document.getElementById('countdown-break').value*60;
+      renderTimer(state.settings.work, document.getElementById('stopwatch-display'), jss);
       togglePlayButton(wrapperElement);
       const timeout = window.setTimeout(function () {
         const alarm = new Audio('audio/alarm.mp3');
         alarm.play();
         togglePlayButton(wrapperElement);
         $('#feedback-modal').modal('show'); //from Bootstrap JS
-      }, timeLimit*1000);
+      }, state.settings.work*1000);
       state.timeoutId = timeout;
   }
 
