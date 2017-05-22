@@ -33,12 +33,7 @@
   <script src="app.min.js" defer></script>
   </head>
 
-<body>
-  <header class="container-fluid">
-    <h1 class="text-center title">PomodoroTime</h1>
-    <button type="button" class="btn btn-default">Signup/Login</button>
-  </header>
-
+<div role="modals">
   <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -61,6 +56,40 @@
       </div>
     </div>
   </div>
+
+  <div id="login-modal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Login</h3>
+        </div>
+        <div class="modal-body">
+          <form method="get">
+            <div class="form-group">
+              <label>
+                Username
+                <input type="text" class="form-control" autocomplete="off" name="username" autofocus="" inputmode="verbatim" maxlength="24" required="">
+              </label>
+              <label>
+                Password
+                <input type="password" class="form-control" name="password" inputmode="verbatim" maxlength="24" min="8" required="">
+              </label>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<body>
+  <header class="container-fluid">
+    <h1 class="text-center title">PomodoroTime</h1>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#login-modal">Signup/Login</button>
+  </header>
+
 
   <main class="container">
     <section class="row">
