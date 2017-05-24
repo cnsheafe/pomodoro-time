@@ -16,3 +16,5 @@ countdownListener(clockDOM, state, jss);
 
 let modalsubmitDOM = document.getElementById('modal-submit');
 modalListener(modalsubmitDOM, state, jss);
+
+// let loginBtn = document.getElementById('login-btn');
