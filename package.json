@@ -4,7 +4,7 @@
   "description": "Timekeeping app using Pomodoro rule.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "node ./server/server.js",
     "test": "mocha",
     "build": "node_modules/.bin/webpack"
   },
@@ -19,16 +19,18 @@
   },
   "homepage": "https://github.com/cnsheafe/pomodoro-time#readme",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "mongoose": "^4.9.6",
-    "morgan": "^1.8.1"
+    "morgan": "^1.8.1",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "mocha": "^3.3.0",
-    "rollup-plugin-commonjs": "^8.0.2",
     "webpack": "^2.5.1"
   }
 }
