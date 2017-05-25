@@ -18,18 +18,31 @@ passport.use(
 	new LocalStrategy (
 	(username, password, callback) => {
 		User
-			.findOne({username: username}, (err, user) => {
-				if (err) { return callback(err);}
-				if (!user) { return callback(null, false, {msg: "incorrect"});}
-				if (!user.validatePassword(password)) {
-					return callback(null, user);
+			.findOne({username: username})
+			.exec()
+			.then(user => {
+				if (!(user.validatePassword(password))) {
+					return callback({
+						valid: false,
+						msg: 'incorrect password'
+					});
 				}
-				return callback(null, user);
-			});
+				else {
+					return callback({
+					valid: true,
+					user: user
+					});
+				}
+			})
+			.catch(err => {
+				return callback({
+					valid: false,
+					msg: 'incorrect username'}
+				);
+			})
 	})
 );
 
-// BEGIN
 // passport.use(strategy);
 app.use(passport.initialize());
 mongoose.connect('mongodb://localhost/data');
@@ -84,15 +97,21 @@ app.post('/signup', (req, res) => {
 		});
 });
 
-app.post('/login', function(req,res) {
+app.post('/login', (req, res) => {
 	passport.authenticate('local',
-	(err, user) => {
-		res.status(200).json({
-			username: user.username,
-			settings: user.settings,
-			history: user.history
-		});
-	})(req,res);
+	data => {
+		if(data.valid) {
+			const user = data.user;
+			res.status(200).json({
+				username: user.username,
+				settings: user.settings,
+				history: user.history
+			});
+		}
+		else {
+			res.status(422).json({msg: data.msg})
+		}
+	})(req, res);
 	}
 );
 
