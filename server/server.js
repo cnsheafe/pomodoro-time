@@ -5,48 +5,23 @@ const jsonParser = require('body-parser').json();
 const passport = require('passport');
 const {PORT} = require('./config');
 const {User} = require('./model');
-const LocalStrategy = require('passport-local').Strategy;
+const strategy = require('./strategy');
+
 
 const app = express();
 app.use(morgan('common'));
 app.use(express.static('public'));
 app.use(jsonParser);
 
-mongoose.Promise = global.Promise;
 
-passport.use(
-	new LocalStrategy (
-	(username, password, callback) => {
-		User
-			.findOne({username: username})
-			.exec()
-			.then(user => {
-				if (!(user.validatePassword(password))) {
-					return callback({
-						valid: false,
-						msg: 'incorrect password'
-					});
-				}
-				else {
-					return callback({
-					valid: true,
-					user: user
-					});
-				}
-			})
-			.catch(err => {
-				return callback({
-					valid: false,
-					msg: 'incorrect username'}
-				);
-			})
-	})
-);
-
-// passport.use(strategy);
+passport.use(strategy);
 app.use(passport.initialize());
+
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/data');
-let server;
+
+
+let server; //used if server is called for testing
 
 app.post('/signup', (req, res) => {
 	if (!req.body) {
