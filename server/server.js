@@ -5,7 +5,7 @@ const jsonParser = require('body-parser').json();
 const passport = require('passport');
 const {PORT} = require('./config');
 const {User} = require('./model');
-const {BasicStrategy} = require('passport-http');
+const LocalStrategy = require('passport-local').Strategy;
 
 const app = express();
 app.use(morgan('common'));
@@ -13,37 +13,26 @@ app.use(express.static('public'));
 app.use(jsonParser);
 
 mongoose.Promise = global.Promise;
-// const strategy = new BasicStrategy((username, password, callback) => {
-// 	let user;
-// 	User
-// 		.findOne({username: username})
-// 		.exec()
-// 		.then(_user => {
-// 			user = _user;
-// 			if (!user) {
-// 				return callback(null, flase, {message: 'Incorrect username'});
-// 			}
-// 			return user.validatePassword(password);
-// 		})
-// 		.then(isValid => {
-// 			if (!isValid) {
-// 				return callback(null, false, {message: 'Incorrect password'});
-// 			}
-// 			else {
-// 				return callback(null, user);
-// 			}
-// 		})
-// });
+
+passport.use(
+	new LocalStrategy (
+	(username, password, callback) => {
+		User
+			.findOne({username: username}, (err, user) => {
+				if (err) { return callback(err);}
+				if (!user) { return callback(null, false, {msg: "incorrect"});}
+				if (!user.validatePassword(password)) {
+					return callback(null, user);
+				}
+				return callback(null, user);
+			});
+	})
+);
+
 // BEGIN
 // passport.use(strategy);
-// app.use(passport.initialize());
-
+app.use(passport.initialize());
 mongoose.connect('mongodb://localhost/data');
-// const db = mongoose.connection;
-// db.on('error', console.error.bind(console, 'connection error:'));
-// db.once('open', function () {
-//
-// });
 let server;
 
 app.post('/signup', (req, res) => {
@@ -95,47 +84,18 @@ app.post('/signup', (req, res) => {
 		});
 });
 
-app.post('/login', (req, res) => {
-	if(!req.body) {
-		return res.status(400).json({
-			msg: "Empty request body"
+app.post('/login', function(req,res) {
+	passport.authenticate('local',
+	(err, user) => {
+		res.status(200).json({
+			username: user.username,
+			settings: user.settings,
+			history: user.history
 		});
+	})(req,res);
 	}
-	const credentials = req.body;
-	if(!('username' in credentials)) {
-		return res.status(422).json({
-			msg: "No username provided"
-		});
-	}
-	if(!('password' in credentials)) {
-		return res.status(422).json({
-			msg: "no password provided"
-		});
-	}
-	User
-		.findOne({username: credentials.username})
-		.exec()
-		.then(_user => {
-			let user = _user;
-			if(user.validatePassword(credentials.password)) {
-				console.log('Passwords match!');
-				return user;
-			}
-			else {
-				throw "Passwords do not match"
-			}
-		})
-		.then(
-			user => {
-				res.status(200).json(user.apiRepr());
-			},
-			err => {
-				res.status(401).json({
-					msg: err
-				})
-			}
-		);
-});
+);
+
 function runServer(port=PORT) {
 	return new Promise((resolve, reject) => {
 		server = app.listen(port, () => {
