@@ -4,7 +4,7 @@ header>.title {
   margin-top: 15px;
 }
 
-header > button {
+header > a {
   float:right;
   margin: 10px 10px auto auto;
 }
@@ -21,26 +21,14 @@ header {
   position: absolute;
 }
 .spinner {
-  /*Replace 'clip' with 'clip-path' when firefox supports*/
-  /*clip: rect(auto 150px auto auto);
-  border-radius: 50%;
-  z-index: 200;
-  border: 2px solid green;*/
+
 }
 
 .filler {
-  /*clip: rect(auto 150px auto auto);
-  border-radius: 50%;
-  z-index: 250;
-  animation-fill-mode: forwards;
-  border: 2px solid green;*/
+
 }
 .mask {
-  /*clip: rect(auto 150px auto auto);
-  z-index: 300;
-  opacity: 1;
-  background: white;
-  animation-fill-mode: forwards;*/
+
 }
 
 .background-border-left {
@@ -144,4 +132,25 @@ form.timer {
 
 .hidden {
   display: none;
+}
+
+.modal-body .nav > li:hover {
+  cursor: pointer;
+}
+
+#login-modal form {
+  background-color: wheat;
+  border-radius: 0 0 4px 4px;
+  padding-left: 10px;
+}
+.modal-body > .nav-tabs a {
+  border: 1px solid #e0e0e0;
+}
+
+.modal-body > .nav-tabs .active > a {
+  background-color: wheat;
+}
+
+.modal-body > .nav-tabs .active > a:hover {
+  background-color: wheat;
 }
