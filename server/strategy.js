@@ -3,6 +3,8 @@ const {User} = require('./model');
 
 const strategy =	new LocalStrategy (
 	(username, password, callback) => {
+    console.log(username);
+    console.log(password);
 		User
 			.findOne({username: username})
 			.exec()
