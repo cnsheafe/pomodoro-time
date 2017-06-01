@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const jsonParser = require('body-parser').json();
 const urlEncParser = require('body-parser').urlencoded({extended:true});
+const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const {User} = require('../model');
 const strategy = require('../strategy');
@@ -14,21 +15,17 @@ router.use(urlEncParser);
 
 passport.use(strategy);
 router.use(passport.initialize());
-router.use(passport.session());
+// router.use(passport.session());
 mongoose.Promise = global.Promise;
 // mongoose.connect('mongodb://localhost/data');
-
+router.use(cookieParser());
 router.use(express.static('public/signup'));
 
 router.post('/', (req, res) => {
   console.log(req.body);
-  if (!req.body) {
-		return res.status(400).json({message: "Empty Request body"});
-	}
+
 	if (!('username' in req.body)) {
-		return res.status(422).json({
-			message: 'Missing field: username'
-		});
+		return res.redirect(422, './');
 	}
 
 	if (!('password' in req.body)) {
@@ -58,17 +55,17 @@ router.post('/', (req, res) => {
 			});
 		}, null)
 		.then(user => {
-			return res.status(201).json(user.apiRepr());
+      console.log(user);
+      res.cookie('pomodoro', user._id);
+			return res.redirect(`/?${user.username}`);
 		})
 		.catch(err => {
       if (err.err === 'username') {
-        res.status(422).json({
-          msg: err.msg
-        });
+        res.redirect('/signup/?err=username');
       }
       else {
         res.status(500).json({
-				  msg: 'Internal server error'
+				  msg: 'Internal server error. Please try again later.'
         });
       }
 		});
