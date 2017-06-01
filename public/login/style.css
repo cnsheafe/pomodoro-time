@@ -1,0 +1,24 @@
+button {
+  float: right;
+  width: 100%;
+}
+html {
+  background-color: #e57373;
+}
+body {
+  position: relative;
+  background-color: #e57373;
+  top: 100px;
+  
+}
+
+p {
+  text-align: center;
+}
+
+main {
+  border: white 4px solid;
+  background-color: white;
+  border-radius: 5px;
+  padding-bottom: 20px;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PomodoroTime - Login</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="A Time-management App">
+  <meta name="author" content="Christofer Sheafe">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="application-name" content="PomodoroTime">
+  <meta name="keywords" content="Pomodoro, productivity,time,free">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script
+	  src="http://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body class="container">
+  <main class="col-xs-8 col-xs-offset-2 col-md-4 col-md-offset-4">
+    <h2>Login to Pomodoro</h2>
+    <form action="/login" method="post">
+      <div class="form-group">
+        <label for="username-input">Username</label>
+        <input type="text" id="username-input" class="form-control" name="username" autocomplete="off" autofocus="" inputmode="verbatim" maxlength="24" required="">
+      </div>
+      <div class="form-group">
+        <label for="password-input">Password</label>
+        <input type="password" id="password-input" class="form-control" name="password" inputmode="verbatim" maxlength="24" min="8" required="">
+      </div>
+      <p><a href="http://localhost:8080/signup">Don't have an account? Sign up for one!</a></p>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+  </main>
+</body>
+</html>

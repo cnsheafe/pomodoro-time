@@ -33,12 +33,7 @@
   <script src="app.min.js" defer></script>
   </head>
 
-<body>
-  <header class="container-fluid">
-    <h1 class="text-center title">PomodoroTime</h1>
-    <button type="button" class="btn btn-default">Signup/Login</button>
-  </header>
-
+<div role="modals">
   <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -61,6 +56,19 @@
       </div>
     </div>
   </div>
+</div>
+
+<body>
+  <header class="container-fluid">
+    <h1 class="text-center title">PomodoroTime</h1>
+    <a href="http://localhost:8080/signup">
+      <button type="button" class="btn btn-default">Signup</button>
+    </a>
+    <a href="http://localhost:8080/login">
+      <button type="button" class="btn btn-primary">Login</button>
+    </a>
+  </header>
+
 
   <main class="container">
     <section class="row">
