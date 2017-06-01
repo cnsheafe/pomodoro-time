@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const jsonParser = require('body-parser').json();
 const urlEncParser = require('body-parser').urlencoded({extended:true});
+const cookieParser = require('cookie-parser');
 const passport = require('passport');
 const {User} = require('../model');
 const strategy = require('../strategy');
@@ -11,25 +12,21 @@ const strategy = require('../strategy');
 router.use(morgan('common'));
 router.use(jsonParser);
 router.use(urlEncParser);
-
+router.use(cookieParser());
 passport.use(strategy);
 router.use(passport.initialize());
-router.use(passport.session());
 mongoose.Promise = global.Promise;
 
-router.use(express.static('public/signup'));
+router.use(express.static('public/login'));
 
 router.post('/', (req, res) => {
-  console.log(req.body);
   passport.authenticate('local',
 	data => {
 		if(data.valid) {
+      console.log(req.cookies);
 			const user = data.user;
-			res.status(200).json({
-				username: user.username,
-				settings: user.settings,
-				history: user.history
-			});
+      res.cookie('pomodoro', `${user._id}`);
+      res.redirect(`/?${user.username}`);
 		}
 		else {
 			res.status(422).json({msg: data.msg})
