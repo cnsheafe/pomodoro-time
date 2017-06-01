@@ -29,7 +29,7 @@ const UserSchema = mongoose.Schema({
 UserSchema.methods.apiRepr = () => {
   return {
     username: this.username,
-    settings: this.settings || null,
+    settings: this.settings || {work: 25, break: 5},
     history: this.history || null
   };
 };
