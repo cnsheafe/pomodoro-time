@@ -2,7 +2,8 @@ const {countdownListener} = require('./event-listeners/countdown');
 const {modalListener} = require('./event-listeners/modal');
 const jss = require('./jss/jss.min');
 const {parseCookieString} = require('./general/cookie');
-
+const {pageDisplay} = require('./general/page');
+const navListener = require('./event-listeners/nav');
 let state = {
   username: null,
   feedback: {
@@ -35,11 +36,18 @@ $.ajax({
   let buttonLink = document.querySelector('header > a');
   buttonLink.classList.add('hide');
   buttonLink.nextElementSibling.querySelector('button').textContent = 'Logout';
+  let settingsButton = document.getElementById('settings-button');
+  settingsButton.classList.remove('hide');
+  document.getElementById('timeline-button').classList.remove('hide');
 });
 
+let navControls = document.getElementById('nav-controls');
+navListener(navControls, state);
 
-let clockDOM = document.getElementById('stopwatch');
-countdownListener(clockDOM, state, jss);
 
-let modalsubmitDOM = document.getElementById('modal-submit');
-modalListener(modalsubmitDOM, state, jss);
+let stopwatch = document.getElementById('stopwatch');
+countdownListener(stopwatch, state, jss);
+
+
+let modalSubmit = document.getElementById('modal-submit');
+modalListener(modalSubmit, state, jss);
