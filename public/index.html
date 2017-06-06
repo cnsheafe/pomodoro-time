@@ -61,46 +61,98 @@
 <body>
   <header class="container-fluid">
     <h1 class="text-center title">PomodoroTime</h1>
-    <a href="http://localhost:8080/signup">
-      <button type="button" class="btn btn-default">Signup</button>
-    </a>
-    <a href="http://localhost:8080/login">
-      <button type="button" class="btn btn-primary">Login</button>
-    </a>
+    <div class="btn-group" id="account-interface" role="group" aria-label="...">
+      <a href="http://localhost:8080/signup">
+        <button type="button" class="btn btn-default">Signup</button>
+      </a>
+      <a href="http://localhost:8080/login">
+        <button type="button" class="btn btn-primary">Login</button>
+      </a>
+      <div id="nav-controls" class="btn-group" role="group" aria-label="...">
+        <a href="" id="timer-button" role="button" data-page="timer-page" class="btn btn-default hide">Timer</a>
+        <a href="" id="settings-button" role="button" data-page="settings-page" class="btn btn-default">
+        Settings</a>
+        <a href="" id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default">
+        Timeline</a>
+      </div>
+    </div>
+
   </header>
 
 
   <main class="container">
-    <section class="row">
-      <div id="stopwatch-display" class="col-xs-12 wrapper">
-        <div class="spinner timer"></div>
-        <div class="filler timer"></div>
-        <div class="mask timer"></div>
-        <div class="background-border-left timer"></div>
-        <div class="background-border-right timer"></div>
-        <div class="timer">
-          <button type="submit" form="stopwatch" class="glyphicon-play glyphicon">
-          </button>
+    <div id="timer-page" class="page">
+      <section class="row">
+        <div id="stopwatch-display" class="col-xs-12 wrapper">
+          <div class="spinner timer"></div>
+          <div class="filler timer"></div>
+          <div class="mask timer"></div>
+          <div class="background-border-left timer"></div>
+          <div class="background-border-right timer"></div>
+          <div class="timer">
+            <button type="submit" form="stopwatch" class="glyphicon-play glyphicon">
+            </button>
+          </div>
         </div>
-      </div>
-    <section class="row">
-      <div class="col-xs-12 wrapper">
-        <form id="stopwatch" class="form-horizontal">
-          <div class="form-group">
-            <label for="countdown-work" class="control-label col-xs-2">Work</label>
-            <div class="col-xs-1">
-              <input id="countdown-work" type="number" class="form-control" required="" max="60" value="25" step="5" autocomplete="off">
+      <section class="row">
+        <div class="col-xs-12 wrapper">
+          <form id="stopwatch" class="form-horizontal">
+            <div class="form-group">
+              <label for="countdown-work" class="control-label col-xs-2">Work</label>
+              <div class="col-xs-1">
+                <input id="countdown-work" type="number" class="form-control" required="" max="60" value="25" step="5" autocomplete="off">
+              </div>
             </div>
-          </div>
-          <div class="form-group">
-            <label for="countdown-break" class="control-label col-xs-2">Break</label>
-            <div class="col-xs-1">
-              <input id="countdown-break" type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
+            <div class="form-group">
+              <label for="countdown-break" class="control-label col-xs-2">Break</label>
+              <div class="col-xs-1">
+                <input id="countdown-break" type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
+              </div>
             </div>
-          </div>
-        </form>
+          </form>
+        </div>
+      </section>
+    </div>
+
+    <div id="settings-page" class="page hide">
+      <h2>Default Session Durations</h2>
+      <div class="input-group">
+        <span class="input-group-addon">Work</span>
+        <input type="number" id="default-work" class="form-control" name="work">
       </div>
-    </section>
+      <div class="input-group">
+        <span class="input-group-addon">Break</span>
+        <input type="number" id="default-break" class="form-control" name="break">
+      </div>
+      <button id="settings-save-button" type="button" class="btn btn-default">Save</button>
+    </div>
+
+    <div id="timeline-page" class="page hide">
+      <table summary="Timeline of past sessions">
+        <tr>
+          <th scope="row"></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+        </tr>
+        <tr>
+          <th scope="row"></th>
+        </tr>
+      </table>
+    </div>
+
   </main>
 </body>
 </html>
