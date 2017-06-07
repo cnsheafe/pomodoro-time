@@ -62,12 +62,8 @@
   <header class="container-fluid">
     <h1 class="text-center title">PomodoroTime</h1>
     <div class="btn-group" id="account-interface" role="group" aria-label="...">
-      <a href="http://localhost:8080/signup">
-        <button type="button" class="btn btn-default">Signup</button>
-      </a>
-      <a href="http://localhost:8080/login">
-        <button type="button" class="btn btn-primary">Login</button>
-      </a>
+      <a href="http://localhost:8080/signup" class="btn btn-default">Signup</a>
+      <a href="http://localhost:8080/login" class="btn btn-default">Login</a>
       <div id="nav-controls" class="btn-group" role="group" aria-label="...">
         <a href="" id="timer-button" role="button" data-page="timer-page" class="btn btn-default hide">Timer</a>
         <a href="" id="settings-button" role="button" data-page="settings-page" class="btn btn-default">
@@ -118,11 +114,11 @@
       <h2>Default Session Durations</h2>
       <div class="input-group">
         <span class="input-group-addon">Work</span>
-        <input type="number" id="default-work" class="form-control" name="work">
+        <input type="number" id="default-work" class="form-control" name="work" value="25">
       </div>
       <div class="input-group">
         <span class="input-group-addon">Break</span>
-        <input type="number" id="default-break" class="form-control" name="break">
+        <input type="number" id="default-break" class="form-control" name="break" value="5">
       </div>
       <button id="settings-save-button" type="button" class="btn btn-default">Save</button>
     </div>
