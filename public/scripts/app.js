@@ -4,6 +4,9 @@ const jss = require('./jss/jss.min');
 const {parseCookieString} = require('./general/cookie');
 const {pageDisplay} = require('./general/page');
 const navListener = require('./event-listeners/nav');
+const settingsListener = require('./event-listeners/settings');
+
+
 let state = {
   username: null,
   feedback: {
@@ -33,9 +36,9 @@ $.ajax({
 .then(data => {
   state.settings = data.settings;
   state.history = data.history;
-  let buttonLink = document.querySelector('header > a');
+  let buttonLink = document.getElementById('account-interface').querySelector('a');
   buttonLink.classList.add('hide');
-  buttonLink.nextElementSibling.querySelector('button').textContent = 'Logout';
+  buttonLink.nextElementSibling.textContent = 'Logout';
   let settingsButton = document.getElementById('settings-button');
   settingsButton.classList.remove('hide');
   document.getElementById('timeline-button').classList.remove('hide');
@@ -51,3 +54,6 @@ countdownListener(stopwatch, state, jss);
 
 let modalSubmit = document.getElementById('modal-submit');
 modalListener(modalSubmit, state, jss);
+
+let settings = document.getElementById('settings-save-button');
+settingsListener(settings, state);
