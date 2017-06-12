@@ -1,13 +1,17 @@
-const drawTimeline = require('../render/table').drawTimeline;
-function timelineListener(timeline) {
+const {drawTimeline, populateTable} = require('../render/table');
+
+
+function timelineListener(timeline, state) {
   timeline.addEventListener('click', event => {
     event.preventDefault();
-    //Chart must be loaded after everything to prevent drawing errors
     google.charts
       .load('current', {'packages':['timeline']});
-    google.charts.setOnLoadCallback(drawTimeline);
+    const data = populateTable(state);
+    google.charts.setOnLoadCallback(
+      function() {
+        drawTimeline(data);
+    });
   });
-
 }
 
 module.exports = timelineListener;

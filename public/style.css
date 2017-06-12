@@ -131,7 +131,9 @@ form.timer {
 }
 
 .hidden {
-  display: none;
+  /*display: none;*/
+  visibility: hidden;
+  /*opacity: 0;*/
 }
 
 .modal-body .nav > li:hover {
@@ -153,4 +155,9 @@ form.timer {
 
 .modal-body > .nav-tabs .active > a:hover {
   background-color: wheat;
+}
+
+.page {
+  width: 800px;
+  /*overflow-x: scroll;*/
 }

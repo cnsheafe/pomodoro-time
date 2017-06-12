@@ -27,6 +27,7 @@ router.get('/', (req, res) => {
 			.then(user => {
 				if (user.username === req.query.username) {
 					res.status(200).json(user.apiRepr());
+          console.log(user.apiRepr());
 				}
 			})
 			.catch(err => {
@@ -47,7 +48,7 @@ router.put('/', (req, res) => {
   User
     .findByIdAndUpdate(req.body.id, {$set: toUpdate})
     .exec()
-    .then(post => res.status(204).json({msg: 'ok'}))
+    .then(res.status(204).end())
     .catch(err => res.status(500).json({message: 'Internal server error'}));
 });
 

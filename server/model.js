@@ -18,15 +18,13 @@ const UserSchema = mongoose.Schema({
     break: Number
   },
   history: [{
-    date: Date,
-    work: Number,
-    break: Number,
-    mood: Number,
-    note: String
+    start: Date,
+    end: Date,
+    mood: String
   }]
 });
 
-UserSchema.methods.apiRepr = () => {
+UserSchema.methods.apiRepr = function() {
   return {
     username: this.username,
     settings: this.settings || {work: 25, break: 5},

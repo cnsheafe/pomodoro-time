@@ -10,15 +10,17 @@
   <meta name="application-name" content="PomodoroTime">
   <meta name="keywords" content="Pomodoro,productivity,time,free">
   <!-- Material Icons Font -->
-  <link
+  <!-- <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
   <!-- Latest compiled and minfied Bootstrap CSS -->
   <link
     rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
     crossorigin="anonymous">
   <!-- App-specific CSS -->
+  <!-- <link rel="stylesheet" href="bootstrap.min.css">
+  <link rel="stylesheet" href="bootstrap.min.css.map"> -->
   <link rel="stylesheet" href="style.css">
   <!-- jQuery necessary for bootstrap Javascript -->
   <script
@@ -29,6 +31,9 @@
   <script
     src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
     crossorigin="anonymous" defer></script>
+  <!-- Google Charts for timeline   -->
+  <script
+    src="https://www.gstatic.com/charts/loader.js" defer></script>
   <!-- App-specific JS -->
   <script src="app.min.js" defer></script>
   </head>
@@ -46,12 +51,12 @@
             <div class="svg-ic_mood_24px mood-feedback" data-mood="good"></div>
             <div class="svg-ic_mood_bad_24px mood-feedback" data-mood="bad"></div>
             <div class="svg-ic_sentiment_neutral_24px mood-feedback" data-mood="ok"></div>
-          </form>
+            </form>
           <div id="modal-note" class="hidden">
             <h3>Session Note(optional)</h3>
             <textarea id="session-notes" rows="4" cols="40" placeholder="I think..."></textarea>
-            <button type="submit" class="btn btn-primary" data-dismiss="modal" form="modal-submit">Begin Break</button>
-          </div>
+            <button type="submit" class="btn btn-primary"  form="modal-submit">Begin Break</button>
+            </div>
         </div>
       </div>
     </div>
@@ -65,11 +70,15 @@
       <a href="http://localhost:8080/signup" class="btn btn-default">Signup</a>
       <a href="http://localhost:8080/login" class="btn btn-default">Login</a>
       <div id="nav-controls" class="btn-group" role="group" aria-label="...">
-        <a href="" id="timer-button" role="button" data-page="timer-page" class="btn btn-default hide">Timer</a>
-        <a href="" id="settings-button" role="button" data-page="settings-page" class="btn btn-default">
-        Settings</a>
-        <a href="" id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default">
-        Timeline</a>
+        <a href="#timer-page" id="timer-button"
+          role="button" data-page="timer-page" class="btn btn-default hide">
+          Timer</a>
+        <a href="#settings-page"
+          id="settings-button" role="button" data-page="settings-page" class="btn btn-default">
+          Settings</a>
+        <a href="#timeline-page"
+          id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default">
+          Timeline</a>
       </div>
     </div>
 
@@ -95,14 +104,18 @@
           <form id="stopwatch" class="form-horizontal">
             <div class="form-group">
               <label for="countdown-work" class="control-label col-xs-2">Work</label>
-              <div class="col-xs-1">
-                <input id="countdown-work" type="number" class="form-control" required="" max="60" value="25" step="5" autocomplete="off">
+              <div class="col-xs-2">
+                <input id="countdown-work"
+                  type="number" class="form-control" required="" max="60" value="25" step="5" autocomplete="off">
               </div>
             </div>
             <div class="form-group">
-              <label for="countdown-break" class="control-label col-xs-2">Break</label>
-              <div class="col-xs-1">
-                <input id="countdown-break" type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
+              <label for="countdown-break"
+                class="control-label col-xs-2">
+                Break</label>
+              <div class="col-xs-2">
+                <input id="countdown-break"
+                  type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
               </div>
             </div>
           </form>
@@ -114,39 +127,51 @@
       <h2>Default Session Durations</h2>
       <div class="input-group">
         <span class="input-group-addon">Work</span>
-        <input type="number" id="default-work" class="form-control" name="work" value="25">
+        <input type="number" id="default-work"
+          class="form-control" name="work" value="25">
       </div>
       <div class="input-group">
         <span class="input-group-addon">Break</span>
-        <input type="number" id="default-break" class="form-control" name="break" value="5">
+        <input type="number" id="default-break"
+          class="form-control" name="break" value="5">
       </div>
-      <button id="settings-save-button" type="button" class="btn btn-default">Save</button>
+      <button id="settings-save-button"
+        type="button" class="btn btn-default">
+        Save</button>
     </div>
 
     <div id="timeline-page" class="page hide">
-      <table summary="Timeline of past sessions">
+      <!-- <table summary="Timeline of past sessions"
+        class="table table-bordered">
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Monday</th>
+          <td></td>
         </tr>
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Tuesday</th>
+          <td></td>
         </tr>
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Wednesday</th>
+          <td></td>
         </tr>
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Thursday</th>
+          <td></td>
         </tr>
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Friday</th>
+          <td></td>
         </tr>
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Saturday</th>
+          <td></td>
         </tr>
         <tr>
-          <th scope="row"></th>
+          <th scope="row">Sunday</th>
+          <td></td>
         </tr>
-      </table>
+      </table> -->
     </div>
 
   </main>

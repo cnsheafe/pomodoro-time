@@ -10,12 +10,16 @@ function countdownListener(clockDOM, state, jss){
       state.settings.work = document.getElementById('countdown-work').value*60;
       state.settings.break = document.getElementById('countdown-break').value*60;
       renderTimer(state.settings.work, document.getElementById('stopwatch-display'), jss);
+      state.currentSession = {};
+      state.currentSession.start = new Date();
       togglePlayButton(wrapperElement);
       const timeout = window.setTimeout(function () {
         const alarm = new Audio('audio/alarm.mp3');
         alarm.play();
-        togglePlayButton(wrapperElement);
+        state.currentSession.end = new Date();
+        // togglePlayButton(wrapperElement);
         $('#feedback-modal').modal('show'); //from Bootstrap JS
+
       }, state.settings.work*1000);
       state.timeoutId = timeout;
   }
