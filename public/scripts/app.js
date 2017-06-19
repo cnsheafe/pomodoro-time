@@ -1,13 +1,14 @@
-const {countdownListener} = require('./event-listeners/countdown');
-const {modalListener} = require('./event-listeners/modal');
-const jss = require('./jss/jss.min');
-const {parseCookieString} = require('./general/cookie');
+const countdownListener = require('./event-listeners/countdown');
+const timer = require('./render/timer');
+const formListener = require('./event-listeners/modal');
+const parseCookieString = require('./general/cookie');
+const {pageDisplay} = require('./general/page');
+const navListener = require('./event-listeners/nav');
+const settingsListener = require('./event-listeners/settings');
+const timelineListener = require('./event-listeners/timeline');
 
 let state = {
   username: null,
-  feedback: {
-    mood: null
-  },
   settings: {
     work: null,
     break: null,
@@ -15,7 +16,14 @@ let state = {
   cookie: {
     name: null,
     val: null
-  }
+  },
+  history: [],
+  currentSession: {
+    start: null,
+    end: null,
+    mood: null
+  },
+  timer: timer(document.getElementById('timer-module'))
 };
 
 const cookies = document.cookie;
@@ -32,14 +40,29 @@ $.ajax({
 .then(data => {
   state.settings = data.settings;
   state.history = data.history;
-  let buttonLink = document.querySelector('header > a');
+  let buttonLink = document.getElementById('account-interface').querySelector('a');
   buttonLink.classList.add('hide');
-  buttonLink.nextElementSibling.querySelector('button').textContent = 'Logout';
+  buttonLink.nextElementSibling.textContent = 'Logout';
+  let settingsButton = document.getElementById('settings-button');
+  settingsButton.classList.remove('hide');
+  document.getElementById('timeline-button').classList.remove('hide');
 });
 
+let navControls = document.getElementById('nav-controls');
+navListener(navControls, state);
 
-let clockDOM = document.getElementById('stopwatch');
-countdownListener(clockDOM, state, jss);
 
-let modalsubmitDOM = document.getElementById('modal-submit');
-modalListener(modalsubmitDOM, state, jss);
+let stopwatch = document.getElementById('timer-module');
+countdownListener(stopwatch, state);
+
+
+let modalSubmit = document.getElementById('modal-submit');
+formListener(modalSubmit, state);
+
+
+let settings = document.getElementById('settings-save-button');
+settingsListener(settings, state);
+
+
+let timeline = document.getElementById('timeline-button');
+timelineListener(timeline, state);

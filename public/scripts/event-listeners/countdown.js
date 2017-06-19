@@ -1,32 +1,36 @@
-const {renderTimer} = require('../jss/timer/timer');
-const reflow = require('../jss/reflow');
-const {togglePlayButton} = require('../render/toggle-play-button');
+const togglePlayButton = require('../render/toggle-play-button');
 
-function countdownListener(clockDOM, state, jss){
-  clockDOM.addEventListener('submit', event => {
+function countdownListener(container, state) {
+  container.addEventListener('click', event => {
     event.preventDefault();
-    const wrapperElement = document.getElementById('stopwatch-display');
-    if(wrapperElement.querySelector('.glyphicon-play')) {
-      state.settings.work = document.getElementById('countdown-work').value*60;
-      state.settings.break = document.getElementById('countdown-break').value*60;
-      renderTimer(state.settings.work, document.getElementById('stopwatch-display'), jss);
-      togglePlayButton(wrapperElement);
+
+    if(container.querySelector('.glyphicon-play')) {
+      state.settings.work = document.getElementById('countdown-work')
+        .value*60;
+      state.settings.break = document.getElementById('countdown-break')
+        .value*60;
+      state.timer.start(state.settings.work*1e3);
+
+      state.currentSession = {};
+      state.currentSession.start = new Date();
+      togglePlayButton(container);
       const timeout = window.setTimeout(function () {
         const alarm = new Audio('audio/alarm.mp3');
         alarm.play();
+        state.currentSession.end = new Date();
         togglePlayButton(wrapperElement);
         $('#feedback-modal').modal('show'); //from Bootstrap JS
+
       }, state.settings.work*1000);
       state.timeoutId = timeout;
-  }
+    }
 
-  else if (wrapperElement.querySelector('.glyphicon-stop')) {
-    jss.remove();
+  else if (container.querySelector('.glyphicon-stop')) {
     window.clearTimeout(state.timeoutId);
-    reflow.timer(wrapperElement.firstElementChild);
-    togglePlayButton(wrapperElement);
+    state.timer.stop();
+    togglePlayButton(container);
     }
   });
 }
 
-module.exports = {countdownListener};
+module.exports = countdownListener;

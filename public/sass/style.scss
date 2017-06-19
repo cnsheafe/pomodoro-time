@@ -1,0 +1,19 @@
+@import 'modal';
+@import 'timer';
+// @import 'bootstrap';
+
+header {
+  background-color: #ff194d;
+  color: #0fff34;
+  padding-bottom: 10px;
+
+  .title {
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  >a {
+    float: right;
+    margin: 10px 10px auto auto;
+  }
+}
