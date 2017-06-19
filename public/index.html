@@ -14,10 +14,10 @@
     rel="stylesheet"
     href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
   <!-- Latest compiled and minfied Bootstrap CSS -->
-  <link
+  <!-- <link
     rel="stylesheet"
     href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous">
+    crossorigin="anonymous"> -->
   <!-- App-specific CSS -->
   <!-- <link rel="stylesheet" href="bootstrap.min.css">
   <link rel="stylesheet" href="bootstrap.min.css.map"> -->
@@ -87,18 +87,8 @@
 
   <main class="container">
     <div id="timer-page" class="page">
-      <section class="row">
-        <div id="stopwatch-display" class="col-xs-12 wrapper">
-          <div class="spinner timer"></div>
-          <div class="filler timer"></div>
-          <div class="mask timer"></div>
-          <div class="background-border-left timer"></div>
-          <div class="background-border-right timer"></div>
-          <div class="timer">
-            <button type="submit" form="stopwatch" class="glyphicon-play glyphicon">
-            </button>
-          </div>
-        </div>
+      <section id="timer-module"
+          class="timer-wrapper"></section>
       <section class="row">
         <div class="col-xs-12 wrapper">
           <form id="stopwatch" class="form-horizontal">
@@ -106,7 +96,7 @@
               <label for="countdown-work" class="control-label col-xs-2">Work</label>
               <div class="col-xs-2">
                 <input id="countdown-work"
-                  type="number" class="form-control" required="" max="60" value="25" step="5" autocomplete="off">
+                  type="number" class="form-control" required="" max="60" value="25" step="1" autocomplete="off">
               </div>
             </div>
             <div class="form-group">
@@ -140,39 +130,7 @@
         Save</button>
     </div>
 
-    <div id="timeline-page" class="page hide">
-      <!-- <table summary="Timeline of past sessions"
-        class="table table-bordered">
-        <tr>
-          <th scope="row">Monday</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Tuesday</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Wednesday</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Thursday</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Friday</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Saturday</th>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">Sunday</th>
-          <td></td>
-        </tr>
-      </table> -->
-    </div>
+    <div id="timeline-page" class="page hide"></div>
 
   </main>
 </body>
