@@ -15,4 +15,4 @@ function parseCookieString(cookieString, state) {
   }
 }
 
-module.exports = {parseCookieString};
+module.exports = parseCookieString;
