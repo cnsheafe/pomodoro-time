@@ -1,6 +1,6 @@
-const {renderTimer} = require('../jss/timer/timer');
-const {togglePlayButton} = require('../render/toggle-play-button');
-function formListener(form, state, jss) {
+const togglePlayButton = require('../render/toggle-play-button');
+
+function formListener(form, state) {
   const note = document.getElementById('modal-note');
 
   form.addEventListener('click', event => {
@@ -29,10 +29,10 @@ function formListener(form, state, jss) {
 
   $('#feedback-modal').on('hidden.bs.modal', event => {
     event.preventDefault();
-    const wrapperElement = document.getElementById('stopwatch-display');
-    // console.log('submit');
+    const wrapperElement = document.getElementById('timer-module');
     note.classList.add('hidden');
-    renderTimer(state.settings.break, wrapperElement, jss);
+
+    state.timer.start(state.settings.break*1e3);
     togglePlayButton(wrapperElement);
     const timeout = window.setTimeout(function () {
       const alarm = new Audio('audio/alarm.mp3');
