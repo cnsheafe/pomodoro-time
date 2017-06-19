@@ -1,0 +1,77 @@
+@import 'bootstrap';
+
+$timer-color: #008000;
+$timer-gray: #e0e0e0;
+
+.timer-wrapper {
+  @include make-xs-column(3);
+  position: relative;
+}
+
+.timer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.glyphicon-play {
+  background: none;
+  border: 0;
+  font-size: 80px;
+  left: 30%;
+  top: 30%;
+  z-index: 400;
+
+  @media screen and (min-width: 768px) {
+    font-size: 115px;
+  }
+}
+
+.glyphicon-stop {
+  @extend .glyphicon-play;
+  left: 25%;
+
+  @media screen and (min-width: 768px) {
+  }
+}
+
+%show-right {
+  border: 5px solid;
+  border-radius: 50%;
+  clip-path: inset(0 50% 0 0);
+}
+
+%show-left {
+  @extend %show-right;
+  clip-path: inset(0 0 0 50%);
+}
+
+.spinner {
+  @extend %show-right;
+  border-color: $timer-color;
+  z-index: 50;
+}
+
+.filler {
+  @extend %show-left;
+  border-color: $timer-color;
+  z-index: 0;
+}
+
+.background-border-left {
+  @extend %show-right;
+  border-color: $timer-gray;
+  z-index: 100;
+}
+
+.background-border-right {
+  @extend %show-left;
+  border-color: $timer-gray;
+  z-index: 25;
+}
+
+form.timer {
+  z-index: 600;
+}
