@@ -1,7 +1,7 @@
-const {countdownListener} = require('./event-listeners/countdown');
+const countdownListener = require('./event-listeners/countdown');
+const timer = require('./render/timer');
 const formListener = require('./event-listeners/modal');
-const jss = require('./jss/jss.min');
-const {parseCookieString} = require('./general/cookie');
+const parseCookieString = require('./general/cookie');
 const {pageDisplay} = require('./general/page');
 const navListener = require('./event-listeners/nav');
 const settingsListener = require('./event-listeners/settings');
@@ -22,7 +22,8 @@ let state = {
     start: null,
     end: null,
     mood: null
-  }
+  },
+  timer: timer(document.getElementById('timer-module'))
 };
 
 const cookies = document.cookie;
@@ -51,12 +52,12 @@ let navControls = document.getElementById('nav-controls');
 navListener(navControls, state);
 
 
-let stopwatch = document.getElementById('stopwatch');
-countdownListener(stopwatch, state, jss);
+let stopwatch = document.getElementById('timer-module');
+countdownListener(stopwatch, state);
 
 
 let modalSubmit = document.getElementById('modal-submit');
-formListener(modalSubmit, state, jss);
+formListener(modalSubmit, state);
 
 
 let settings = document.getElementById('settings-save-button');
