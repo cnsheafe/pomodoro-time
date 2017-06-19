@@ -4,4 +4,4 @@ function togglePlayButton(wrapperElement) {
   playButton.classList.toggle('glyphicon-stop');
 }
 
-module.exports = {togglePlayButton};
+module.exports = togglePlayButton;
