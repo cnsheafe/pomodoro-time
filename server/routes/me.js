@@ -20,9 +20,10 @@ router.use(passport.initialize());
 mongoose.Promise = global.Promise;
 
 router.get('/', (req, res) => {
-  if ('username' in req.query && 'id' in req.query) {
+  console.log(`Me: ${req.cookies.pomodoro}`);
+  if ('username' in req.query && 'pomodoro' in req.cookies) {
 		User
-			.findById(req.query.id)
+			.findById(req.cookies.pomodoro)
 			.exec()
 			.then(user => {
 				if (user.username === req.query.username) {
