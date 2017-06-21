@@ -55,7 +55,6 @@ router.post('/', (req, res) => {
 			});
 		}, null)
 		.then(user => {
-      console.log(user);
       res.cookie('pomodoro', user._id);
 			return res.redirect(`/?${user.username}`);
 		})
