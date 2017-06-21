@@ -20,11 +20,13 @@ mongoose.Promise = global.Promise;
 router.use(express.static('public/login'));
 
 router.post('/', (req, res) => {
+  console.log(req.body);
   passport.authenticate('local',
 	data => {
+    console.log('auth', data);
 		if(data.valid) {
-      console.log(req.cookies);
 			const user = data.user;
+      // console.log(user._id);
       res.cookie('pomodoro', `${user._id}`);
       res.redirect(`/?${user.username}`);
 		}
