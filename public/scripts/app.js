@@ -6,6 +6,7 @@ const {pageDisplay} = require('./general/page');
 const navListener = require('./event-listeners/nav');
 const settingsListener = require('./event-listeners/settings');
 const timelineListener = require('./event-listeners/timeline');
+const {INDEX} = require('./general/config');
 
 let state = {
   username: null,
@@ -25,13 +26,18 @@ let state = {
   },
   timer: timer(document.getElementById('timer-module'))
 };
+const redirects = document.getElementById('account-interface').querySelectorAll('a');
+
+// redirects[0].setAttribute('href', `${INDEX}\\signup`);
+// redirects[1].setAttribute('href', `${INDEX}\\login`);
+
 
 const cookies = document.cookie;
 state.username = window.location.search.slice(1);
 parseCookieString(cookies, state);
 $.ajax({
   method: 'GET',
-  url: `http://localhost:8080/me`,
+  url: `/me`,
   data: {
     username: state.username,
     id: state.cookie.val

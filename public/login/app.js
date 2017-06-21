@@ -3,7 +3,7 @@ console.log(document.cookie);
 // console.log(document.cookie);
 // TODO: Parse cookie and set pomodoro to null
 // see if app breaks
-$.ajax('http://localhost:8080/logout', {
+$.ajax('../logout', {
   method: 'GET',
   data: {
 
