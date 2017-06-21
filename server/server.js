@@ -5,7 +5,7 @@ const jsonParser = require('body-parser').json();
 const urlEncParser = require('body-parser').urlencoded({extended: true});
 const cookieParser = require('cookie-parser');
 const passport = require('passport');
-const {PORT} = require('./config');
+const {PORT, DATABASE_URL} = require('./config');
 const {User} = require('./model');
 const strategy = require('./strategy');
 const routerSignup = require('./routes/signup');
@@ -24,9 +24,12 @@ app.use('/signup', routerSignup);
 app.use('/login', routerLogin);
 app.use('/me', routerMe);
 app.use('/logout', routerLogout);
+passport.use(strategy);
+app.use(passport.initialize());
 
 let server; //used if server is called for testing
-mongoose.connect('mongodb://localhost/data');
+mongoose.connect(DATABASE_URL);
+// mongoose.connect('mongodb://localhost/data');
 
 
 function runServer(port=PORT) {
