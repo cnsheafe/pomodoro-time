@@ -17,3 +17,22 @@ header {
     margin: 10px 10px auto auto;
   }
 }
+
+.timer-settings {
+  display: flex;
+  justify-content: center;
+
+  >div {
+    @include make-xs-column(6);
+    @media screen and (min-width: 768px) {
+      @include make-xs-column(3);
+    }
+  }
+
+  // input {
+  //   @extend .input-lg;
+  //   @media screen and (min-width: 768px) {
+  //     @include myinputs;
+  //   }
+  // }
+}

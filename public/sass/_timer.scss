@@ -4,8 +4,15 @@ $timer-color: #008000;
 $timer-gray: #e0e0e0;
 
 .timer-wrapper {
-  @include make-xs-column(3);
+  @include make-xs-column(8);
+  @include make-xs-column-offset(2);
+  margin-top: 25px;
   position: relative;
+
+  @media screen and (min-width: 768px) {
+    @include make-xs-column(6);
+    @include make-xs-column-offset(3);
+  }
 }
 
 .timer {
@@ -16,12 +23,17 @@ $timer-gray: #e0e0e0;
   right: 0;
 }
 
+.timer-button {
+  @extend .timer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .glyphicon-play {
   background: none;
   border: 0;
-  font-size: 80px;
-  left: 30%;
-  top: 30%;
+  font-size: 75px;
   z-index: 400;
 
   @media screen and (min-width: 768px) {
