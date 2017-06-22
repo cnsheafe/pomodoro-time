@@ -26,15 +26,11 @@ let state = {
   },
   timer: timer(document.getElementById('timer-module'))
 };
-const redirects = document.getElementById('account-interface').querySelectorAll('a');
-
-// redirects[0].setAttribute('href', `${INDEX}\\signup`);
-// redirects[1].setAttribute('href', `${INDEX}\\login`);
-
 
 const cookies = document.cookie;
 state.username = window.location.search.slice(1);
 parseCookieString(cookies, state);
+
 $.ajax({
   method: 'GET',
   url: `/me`,
