@@ -90,23 +90,23 @@
       <section id="timer-module"
           class="timer-wrapper"></section>
       <section class="row">
-        <div class="col-xs-12 wrapper">
-          <form id="stopwatch" class="form-horizontal">
-            <div class="form-group">
-              <label for="countdown-work" class="control-label col-xs-2">Work</label>
-              <div class="col-xs-2">
-                <input id="countdown-work"
-                  type="number" class="form-control" required="" max="60" value="25" step="1" autocomplete="off">
-              </div>
+        <div class="col-xs-12">
+          <form id="stopwatch" class="form-horizontal timer-settings">
+            <div class="form-group col-xs-6">
+              <label
+                for="countdown-work"
+                class="control-label col-xs-2">Work</label>
+              <input id="countdown-work"
+                type="number" class="form-control input-lg" required="" max="60"
+                value="25" step="1" autocomplete="off">
             </div>
-            <div class="form-group">
-              <label for="countdown-break"
-                class="control-label col-xs-2">
-                Break</label>
-              <div class="col-xs-2">
-                <input id="countdown-break"
-                  type="number" class="form-control" required="" max="60" step="1" value="5" autocomplete="off">
-              </div>
+
+            <div class="form-group col-xs-6">
+              <label
+                for="countdown-break"
+                class="control-label col-xs-2">Break</label>
+              <input id="countdown-break"
+                type="number" class="form-control input-lg" required="" max="60" step="1" value="5" autocomplete="off">
             </div>
           </form>
         </div>
