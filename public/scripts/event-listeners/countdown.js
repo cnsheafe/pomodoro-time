@@ -18,7 +18,7 @@ function countdownListener(container, state) {
         const alarm = new Audio('audio/alarm.mp3');
         alarm.play();
         state.currentSession.end = new Date();
-        togglePlayButton(wrapperElement);
+        togglePlayButton(container);
         $('#feedback-modal').modal('show'); //from Bootstrap JS
 
       }, state.settings.work*1000);
