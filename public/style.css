@@ -5841,25 +5841,39 @@ button.close {
 .timer-wrapper {
   position: relative;
   float: left;
-  width: 25%;
+  width: 66.66667%;
   min-height: 1px;
   padding-left: 15px;
   padding-right: 15px;
+  margin-left: 16.66667%;
+  margin-top: 25px;
   position: relative; }
+  @media screen and (min-width: 768px) {
+    .timer-wrapper {
+      position: relative;
+      float: left;
+      width: 50%;
+      min-height: 1px;
+      padding-left: 15px;
+      padding-right: 15px;
+      margin-left: 25%; } }
 
-.timer {
+.timer, .timer-button {
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
   right: 0; }
 
+.timer-button {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
 .glyphicon-play, .glyphicon-stop {
   background: none;
   border: 0;
-  font-size: 80px;
-  left: 30%;
-  top: 30%;
+  font-size: 75px;
   z-index: 400; }
   @media screen and (min-width: 768px) {
     .glyphicon-play, .glyphicon-stop {
@@ -5892,7 +5906,7 @@ button.close {
   border-color: #e0e0e0;
   z-index: 25; }
 
-form.timer {
+form.timer, form.timer-button {
   z-index: 600; }
 
 header {
@@ -5906,5 +5920,24 @@ header {
   header > a {
     float: right;
     margin: 10px 10px auto auto; }
+
+.timer-settings {
+  display: flex;
+  justify-content: center; }
+  .timer-settings > div {
+    position: relative;
+    float: left;
+    width: 50%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media screen and (min-width: 768px) {
+      .timer-settings > div {
+        position: relative;
+        float: left;
+        width: 25%;
+        min-height: 1px;
+        padding-left: 15px;
+        padding-right: 15px; } }
 
 /*# sourceMappingURL=style.css.map */
