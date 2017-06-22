@@ -12,7 +12,7 @@ class Timer {
         <div class="filler timer"></div>
         <div class="background-border-left timer"></div>
         <div class="background-border-right timer"></div>
-        <div class="timer">
+        <div class="timer timer-button">
           <button class="glyphicon glyphicon-play" type="button"></button>
         </div>
       `;
@@ -34,14 +34,13 @@ class Timer {
       interval -= performance.now() - (this.counter.epoch + this.settings.interval*(this.counter.count-1));
 
       this.timeoutId = setTimeout(() => {
-        console.log(performance.now());
+        // console.log(performance.now());
         this.update();
       }, Math.floor(interval));
     }
   }
   start(duration) {
     this.settings.duration = duration || this.settings.duration;
-    // console.log(`Duration is ${this.settings.duration}`);
     this.counter.count = 0;
     this.container
       .querySelector('.background-border-left')
@@ -59,7 +58,6 @@ class Timer {
 
 
   draw(progress, max) {
-    // console.log(`Drawing`);
     if (progress/max > 0.5) {
       this.container.querySelector('.background-border-left').setAttribute('style', `z-index: 25`);
       this.container.querySelector('.filler').setAttribute('style', 'z-index: 75');
