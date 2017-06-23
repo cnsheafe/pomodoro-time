@@ -1,12 +1,28 @@
 @charset "UTF-8";
 .mood-feedback {
+  background: none;
   cursor: pointer;
   display: inline-block;
-  margin-right: 10px; }
+  margin-right: 25px; }
+
+.modal-body h3 {
+  text-align: center; }
+
+.modal-button {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px; }
+
+.form-mood {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px; }
 
 .svg-ic_mood_24px, .svg-ic_mood_bad_24px, .svg-ic_sentiment_neutral_24px {
   height: 24px;
-  width: 24px; }
+  width: 24px;
+  border: 2px solid gray;
+  border-radius: 5px; }
 
 .svg-ic_mood_24px {
   background: url("./img/social.svg") 40% 25% no-repeat; }
