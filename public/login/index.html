@@ -27,13 +27,28 @@
     <form action="/login" method="post">
       <div class="form-group">
         <label for="username-input">Username</label>
-        <input type="text" id="username-input" class="form-control" name="username" autocomplete="off" autofocus="" inputmode="verbatim" maxlength="24" required="">
+        <input type="text" id="username-input"
+          class="form-control" name="username"
+          autocomplete="off" autofocus=""
+          inputmode="verbatim" maxlength="24" required="">
       </div>
       <div class="form-group">
         <label for="password-input">Password</label>
-        <input type="password" id="password-input" class="form-control" name="password" inputmode="verbatim" maxlength="24" min="8" required="">
+        <input type="password" id="password-input"
+          class="form-control" name="password"
+          inputmode="verbatim" maxlength="24"
+          min="8" required="">
       </div>
       <p><a href="/signup">Don't have an account? Sign up for one!</a></p>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3>Demo Credentials</h3>
+        </div>
+        <div class="panel-body">
+          <p>Username: demo</p>
+          <p>Password: password</p>
+        </div>
+      </div>
       <button type="submit" class="btn btn-primary">Login</button>
     </form>
   </main>
