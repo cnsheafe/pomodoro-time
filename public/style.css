@@ -5895,9 +5895,6 @@ button.close {
     .glyphicon-play, .glyphicon-stop {
       font-size: 115px; } }
 
-.glyphicon-stop {
-  left: 25%; }
-
 .filler, .background-border-right, .spinner, .background-border-left {
   border: 5px solid;
   border-radius: 50%;
@@ -5936,6 +5933,8 @@ header {
   header > a {
     float: right;
     margin: 10px 10px auto auto; }
+  header .btn-group {
+    float: right; }
 
 .timer-settings {
   display: flex;
