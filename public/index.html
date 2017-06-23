@@ -10,17 +10,10 @@
   <meta name="application-name" content="PomodoroTime">
   <meta name="keywords" content="Pomodoro,productivity,time,free">
   <!-- Material Icons Font -->
-  <!-- <link
+  <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
-  <!-- Latest compiled and minfied Bootstrap CSS -->
-  <!-- <link
-    rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-    crossorigin="anonymous"> -->
+    href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- App-specific CSS -->
-  <!-- <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="bootstrap.min.css.map"> -->
   <link rel="stylesheet" href="style.css">
   <!-- jQuery necessary for bootstrap Javascript -->
   <script
@@ -36,27 +29,40 @@
     src="https://www.gstatic.com/charts/loader.js" defer></script>
   <!-- App-specific JS -->
   <script src="app.min.js" defer></script>
-  </head>
+</head>
 
 <div role="modals">
   <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h2 class="modal-title">Session Feedback</h2>
+          <h2 class="modal-title">End of Session</h2>
         </div>
         <div class="modal-body">
           <h3>How was your session?</h3>
-          <form id="modal-submit">
-            <div class="svg-ic_mood_24px mood-feedback" data-mood="good"></div>
-            <div class="svg-ic_mood_bad_24px mood-feedback" data-mood="bad"></div>
-            <div class="svg-ic_sentiment_neutral_24px mood-feedback" data-mood="ok"></div>
-            </form>
+          <form id="modal-submit" class="form-mood">
+            <button type="submit"
+              class="btn btn-default mood-feedback"
+              data-mood="good">
+              <i class="material-icons">mood</i>
+            </button>
+            <button type="submit"
+              class="btn btn-default xs-col-offset-1 mood-feedback" data-mood="bad">
+              <i class="material-icons">mood_bad</i>
+            </button>
+            <button type="submit"
+              class="btn btn-default mood-feedback xs-col-offset-1"
+              data-mood="ok">
+              <i class="material-icons">sentiment_neutral</i>
+            </button>
+          </form>
           <div id="modal-note" class="hidden">
             <h3>Session Note(optional)</h3>
-            <textarea id="session-notes" rows="4" cols="40" placeholder="I think..."></textarea>
-            <button type="submit" class="btn btn-primary"  form="modal-submit">Begin Break</button>
+            <textarea id="session-notes" class="form-control" rows="4" cols="40" placeholder="My session was..."></textarea>
+            <div class="modal-button">
+              <button type="submit" class="btn btn-primary"  form="modal-submit">Begin Break</button>
             </div>
+          </div>
         </div>
       </div>
     </div>
@@ -68,27 +74,25 @@
     <h1 class="text-center title">PomodoroTime</h1>
     <div class="btn-group" id="account-interface" role="group" aria-label="...">
       <a href="/signup" class="btn btn-default">Signup</a>
-      <a href="/login" class="btn btn-default">Login</a>
+      <a href="/login" class="btn btn-default">Login/Demo</a>
       <div id="nav-controls" class="btn-group" role="group" aria-label="...">
         <a href="#timer-page" id="timer-button"
           role="button" data-page="timer-page" class="btn btn-default hide">
           Timer</a>
         <a href="#settings-page"
-          id="settings-button" role="button" data-page="settings-page" class="btn btn-default">
+          id="settings-button" role="button" data-page="settings-page" class="btn btn-default hide">
           Settings</a>
         <a href="#timeline-page"
-          id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default">
+          id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default hide">
           Timeline</a>
       </div>
     </div>
-
   </header>
-
 
   <main class="container">
     <div id="timer-page" class="page">
       <section id="timer-module"
-          class="timer-wrapper"></section>
+        class="timer-wrapper"></section>
       <section class="row">
         <div class="col-xs-12">
           <form id="stopwatch" class="form-horizontal timer-settings">
