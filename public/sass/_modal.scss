@@ -2,14 +2,35 @@ $border-color: #e0e0e0;
 $background-color: #f5deb3;
 
 .mood-feedback {
+  background: none;
   cursor: pointer;
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 25px;
+}
+
+.modal-body {
+  h3 {
+    text-align: center;
+  }
+}
+
+.modal-button {
+  display: flex;
+  justify-content: end;
+  margin-top: 10px;
+}
+
+.form-mood {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
 }
 
 %svg-mood {
   height: 24px;
   width: 24px;
+  border: 2px solid gray;
+  border-radius: 5px;
 }
 
 .svg-ic_mood_24px {
