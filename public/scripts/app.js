@@ -6,7 +6,6 @@ const {pageDisplay} = require('./general/page');
 const navListener = require('./event-listeners/nav');
 const settingsListener = require('./event-listeners/settings');
 const timelineListener = require('./event-listeners/timeline');
-const {INDEX} = require('./general/config');
 
 let state = {
   username: null,
@@ -48,6 +47,9 @@ $.ajax({
   let settingsButton = document.getElementById('settings-button');
   settingsButton.classList.remove('hide');
   document.getElementById('timeline-button').classList.remove('hide');
+
+  document.getElementById('countdown-work').setAttribute('value', state.settings.work);
+  document.getElementById('countdown-break').setAttribute('value', state.settings.break);
 });
 
 let navControls = document.getElementById('nav-controls');
