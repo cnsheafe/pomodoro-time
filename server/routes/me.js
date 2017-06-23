@@ -38,13 +38,16 @@ router.get('/', (req, res) => {
 });
 
 router.put('/', (req, res) => {
+  console.log(req.body);
   let toUpdate = {};
-  if  ('username' in req.body && 'id' in req.body) {
+  if  ('username' in req.body && req.cookies.pomodoro) {
+    console.log('valid update');
     ['settings', 'history'].forEach(field => {
       if (field in req.body) {
         toUpdate[field] = req.body[field];
       }
     });
+    console.log(toUpdate);
   }
   User
     .findByIdAndUpdate(req.body.id, {$set: toUpdate})
