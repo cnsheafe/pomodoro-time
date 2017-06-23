@@ -15,7 +15,7 @@ function formListener(form, state) {
     event.preventDefault();
     console.log('submit');
     state.history.push(state.currentSession);
-    $.ajax('http://localhost:8080/me',{
+    $.ajax('/me',{
       method: 'PUT',
       data: {
         username: state.username,
@@ -23,7 +23,9 @@ function formListener(form, state) {
         history: state.history
       }
     })
-    .then(() => console.log('ok'));
+    .then(() => {
+      $('#feedback-modal').modal('hide')
+    });
   });
 
 

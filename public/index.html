@@ -41,16 +41,16 @@
         <div class="modal-body">
           <h3>How was your session?</h3>
           <form id="modal-submit" class="form-mood">
-            <button type="submit"
+            <button type="button"
               class="btn btn-default mood-feedback"
               data-mood="good">
               <i class="material-icons">mood</i>
             </button>
-            <button type="submit"
+            <button type="button"
               class="btn btn-default xs-col-offset-1 mood-feedback" data-mood="bad">
               <i class="material-icons">mood_bad</i>
             </button>
-            <button type="submit"
+            <button type="button"
               class="btn btn-default mood-feedback xs-col-offset-1"
               data-mood="ok">
               <i class="material-icons">sentiment_neutral</i>
@@ -73,9 +73,9 @@
   <header class="container-fluid">
     <h1 class="text-center title">PomodoroTime</h1>
     <div class="btn-group" id="account-interface" role="group" aria-label="...">
-      <a href="/signup" class="btn btn-default">Signup</a>
-      <a href="/login" class="btn btn-default">Login/Demo</a>
       <div id="nav-controls" class="btn-group" role="group" aria-label="...">
+        <a href="/signup" class="btn btn-default">Signup</a>
+        <a href="/login" class="btn btn-default">Login/Demo</a>
         <a href="#timer-page" id="timer-button"
           role="button" data-page="timer-page" class="btn btn-default hide">
           Timer</a>
