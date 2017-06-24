@@ -67,6 +67,23 @@
       </div>
     </div>
   </div>
+  <div id="about-modal" class="modal fade"
+    tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close"
+            data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h3 class="modal-title">About PomodoroTime</h3>
+          <div class="modal-body">
+            <p>PomodoroTime is a productivity app based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">Pomodoro Method</a>. The idea is that work tasks are broken down into short work periods with breaks in between. If you are using an account, the app will also keep track of your work sessions so you can gauge times you work best.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <body>
@@ -85,6 +102,11 @@
         <a href="#timeline-page"
           id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default hide">
           Timeline</a>
+        <a href="#about"
+          id="about-button" role="button" class="btn btn-default"
+          data-toggle="modal"
+          data-target="#about-modal">
+          What is this?</a>
       </div>
     </div>
   </header>
