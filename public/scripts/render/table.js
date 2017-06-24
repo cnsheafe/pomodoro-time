@@ -22,7 +22,7 @@ function populateTable(state) {
   }
 
 
-function drawTimeline(dates) {
+function drawTimeline(dates, containerWidth) {
   if(dates.length) {
 
   const container = document.getElementById('timeline-page');
@@ -37,7 +37,8 @@ function drawTimeline(dates) {
   table.addRows(dates);
   console.log("This is dates", dates);
   chart.draw(table, {
-    width: 1000
+    // width: 1000
+    width: containerWidth
   });
 }
 }
