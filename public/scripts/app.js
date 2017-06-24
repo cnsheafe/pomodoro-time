@@ -23,7 +23,7 @@ let state = {
     end: null,
     mood: null
   },
-  timer: timer(document.getElementById('timer-module'))
+  timer: timer(document.getElementById('timer-module')),
 };
 
 const cookies = document.cookie;
