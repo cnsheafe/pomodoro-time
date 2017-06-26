@@ -1,11 +1,10 @@
 class Timer {
-  constructor(container, settings) {
+  constructor(container, settings, callback) {
     container.setAttribute('style', `height: ${container.offsetWidth}px`);
 
     window.addEventListener('resize',event =>
       container.setAttribute('style', `height: ${container.offsetWidth}px`)
     );
-
     this.container = container;
     container.innerHTML =
       `<div class="spinner timer"></div>
@@ -25,6 +24,7 @@ class Timer {
       epoch: null
     };
 
+    this.callback = null;
   }
   update() {
     let [duration, interval] = Object.values(this.settings);
@@ -34,12 +34,15 @@ class Timer {
       interval -= performance.now() - (this.counter.epoch + this.settings.interval*(this.counter.count-1));
 
       this.timeoutId = setTimeout(() => {
-        // console.log(performance.now());
         this.update();
       }, Math.floor(interval));
     }
+    else {
+      this.callback.call(this);
+    }
   }
-  start(duration) {
+
+  start(duration, callback) {
     this.settings.duration = duration || this.settings.duration;
     this.counter.count = 0;
     this.container
@@ -48,12 +51,14 @@ class Timer {
     this.container
       .querySelector('.filler')
       .removeAttribute('style');
+    this.callback = callback;
     this.counter.epoch = performance.now();
     this.update();
   }
 
   stop() {
     clearTimeout(this.timeoutId);
+    // this.callback.call(this);
   }
 
 
@@ -66,6 +71,6 @@ class Timer {
   }
 }
 
-module.exports = function(container) {
-  return new Timer(container);
+module.exports = function(container, settings, callback) {
+  return new Timer(container, settings, callback);
 };

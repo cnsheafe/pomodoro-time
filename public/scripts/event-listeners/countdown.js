@@ -4,33 +4,36 @@ function countdownListener(container, state) {
   container.addEventListener('click', event => {
     event.preventDefault();
 
-    if(container.querySelector('.glyphicon-play')) {
+  if(container.querySelector('.glyphicon-play')) {
       state.settings.work = document.getElementById('countdown-work')
         .value*60;
       state.settings.break = document.getElementById('countdown-break')
         .value*60;
-      state.timer.start(state.settings.work*1e3);
+      state.timer.start(state.settings.work*1e3, function() {
+        ringBell.call(this);
+        $('#feedback-modal').modal('show');
+      });
 
       state.currentSession = {};
       state.currentSession.start = new Date();
-      togglePlayButton(container);
-      const timeout = window.setTimeout(function () {
-        const alarm = new Audio('audio/alarm.mp3');
-        alarm.play();
-        state.currentSession.end = new Date();
-        togglePlayButton(container);
-        $('#feedback-modal').modal('show'); //from Bootstrap JS
 
-      }, state.settings.work*1000);
-      state.timeoutId = timeout;
+      togglePlayButton(container);
     }
 
   else if (container.querySelector('.glyphicon-stop')) {
     window.clearTimeout(state.timeoutId);
     state.timer.stop();
     togglePlayButton(container);
-    }
+  }
   });
 }
 
-module.exports = countdownListener;
+function ringBell() {
+  const alarm = new Audio('audio/alarm.mp3');
+  alarm.play();
+  this.stop();
+  togglePlayButton(this.container);
+  // $('#feedback-modal').modal('show');
+}
+
+module.exports = {countdownListener, ringBell};

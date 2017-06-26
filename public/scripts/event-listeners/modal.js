@@ -1,4 +1,5 @@
 const togglePlayButton = require('../render/toggle-play-button');
+const ringBell = require('./countdown').ringBell;
 
 function formListener(form, state) {
   const note = document.getElementById('modal-note');
@@ -34,13 +35,13 @@ function formListener(form, state) {
     const wrapperElement = document.getElementById('timer-module');
     note.classList.add('hidden');
 
-    state.timer.start(state.settings.break*1e3);
+    state.timer.start(state.settings.break*1e3, ringBell);
     togglePlayButton(wrapperElement);
-    const timeout = window.setTimeout(function () {
-      const alarm = new Audio('audio/alarm.mp3');
-      alarm.play();
-    }, state.settings.break*1000);
-    state.timeoutId = timeout;
+    // const timeout = window.setTimeout(function () {
+    //   const alarm = new Audio('audio/alarm.mp3');
+    //   alarm.play();
+    // }, state.settings.break*1000);
+    // state.timeoutId = timeout;
   });
 }
 

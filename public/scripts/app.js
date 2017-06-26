@@ -1,4 +1,4 @@
-const countdownListener = require('./event-listeners/countdown');
+const {countdownListener, ringBell} = require('./event-listeners/countdown');
 const timer = require('./render/timer');
 const formListener = require('./event-listeners/modal');
 const parseCookieString = require('./general/cookie');
@@ -10,8 +10,8 @@ const timelineListener = require('./event-listeners/timeline');
 let state = {
   username: null,
   settings: {
-    work: null,
-    break: null,
+    work: 25,
+    break: 5,
   },
   cookie: {
     name: null,
@@ -23,7 +23,7 @@ let state = {
     end: null,
     mood: null
   },
-  timer: timer(document.getElementById('timer-module')),
+  timer: timer(document.getElementById('timer-module'), {duration: 1e3, interval: 20}, ringBell),
 };
 
 const cookies = document.cookie;
