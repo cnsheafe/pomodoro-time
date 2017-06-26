@@ -5963,4 +5963,8 @@ header {
         padding-left: 15px;
         padding-right: 15px; } }
 
+#empty-timeline h2 {
+  text-align: center;
+  margin-top: 30px; }
+
 /*# sourceMappingURL=style.css.map */
