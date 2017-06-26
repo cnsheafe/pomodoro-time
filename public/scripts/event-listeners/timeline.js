@@ -20,5 +20,11 @@ function timelineHelper(state, width) {
     function() {
       drawTimeline(data, width);
   });
+  if(!data.length) {
+    document.getElementById('empty-timeline').classList.remove('hide');
+  }
+  else {
+    document.getElementById('empty-timeline').classList.add('hide');
+  }
 }
 module.exports = timelineListener;

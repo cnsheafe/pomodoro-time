@@ -35,14 +35,25 @@ function formListener(form, state) {
     const wrapperElement = document.getElementById('timer-module');
     note.classList.add('hidden');
 
-    state.timer.start(state.settings.break*1e3, ringBell);
+    state.timer.start(state.settings.break*1e3, function() {
+      ringBell.call(this);
+      $('#resume-modal').modal('show');
+    });
     togglePlayButton(wrapperElement);
-    // const timeout = window.setTimeout(function () {
-    //   const alarm = new Audio('audio/alarm.mp3');
-    //   alarm.play();
-    // }, state.settings.break*1000);
-    // state.timeoutId = timeout;
   });
+
+  document.getElementById('resume-modal')
+  .querySelector('.modal-button')
+  .addEventListener('click', event => {
+    // event.preventDefault();
+    const wrapperElement = document.getElementById('timer-module');
+    togglePlayButton(wrapperElement);
+    $('#resume-modal').modal('hide');
+    state.timer.start(state.settings.work*1e3, function() {
+      $('#feedback-modal').modal('show');
+      ringBell.call(this);
+    });
+  })
 }
 
 module.exports = formListener;

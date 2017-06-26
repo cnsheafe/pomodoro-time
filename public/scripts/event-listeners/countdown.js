@@ -29,11 +29,10 @@ function countdownListener(container, state) {
 }
 
 function ringBell() {
-  const alarm = new Audio('audio/alarm.mp3');
+  const alarm = new Audio('audio/alarm_edit.mp3');
   alarm.play();
   this.stop();
   togglePlayButton(this.container);
-  // $('#feedback-modal').modal('show');
 }
 
 module.exports = {countdownListener, ringBell};
