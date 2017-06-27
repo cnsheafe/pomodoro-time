@@ -13,6 +13,10 @@
   <link
     rel="stylesheet"
     href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <!-- Google Fonts -->
+ <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Asul|Kavoon">
   <!-- App-specific CSS -->
   <link rel="stylesheet" href="style.css">
   <!-- jQuery necessary for bootstrap Javascript -->
@@ -136,7 +140,7 @@
         class="timer-wrapper"></section>
       <section class="row">
         <div class="col-xs-12">
-          <form id="stopwatch" class="form-horizontal timer-settings">
+          <form id="stopwatch" class="form-horizontal stopwatch-settings">
             <div class="form-group col-xs-6">
               <label
                 for="countdown-work"
@@ -159,23 +163,26 @@
     </div>
 
     <div id="settings-page" class="page hide">
-      <h2>Default Session Durations</h2>
-      <div class="input-group">
-        <span class="input-group-addon">Work</span>
-        <input type="number" id="default-work"
-          class="form-control" name="work" value="25">
+      <div class="timer-settings col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+        <h2>Default Session Durations</h2>
+        <div class="input-group">
+          <span class="input-group-addon">Work</span>
+          <input type="number" id="default-work"
+            class="form-control" name="work" value="25">
+        </div>
+        <div class="input-group">
+          <span class="input-group-addon">Break</span>
+          <input type="number" id="default-break"
+            class="form-control" name="break" value="5">
+        </div>
+        <button id="settings-save-button"
+          type="button" class="btn btn-default">
+          Save</button>
       </div>
-      <div class="input-group">
-        <span class="input-group-addon">Break</span>
-        <input type="number" id="default-break"
-          class="form-control" name="break" value="5">
-      </div>
-      <button id="settings-save-button"
-        type="button" class="btn btn-default">
-        Save</button>
     </div>
 
     <div id="timeline-page" class="page hide">
+      <div id="timeline-container"></div>
       <div id="empty-timeline" class="hide">
         <h2>Empty! Try a work session to track your progress.</h2>
       </div>
