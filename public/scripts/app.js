@@ -1,6 +1,6 @@
 const {countdownListener, ringBell} = require('./event-listeners/countdown');
 const timer = require('./render/timer');
-const formListener = require('./event-listeners/modal');
+const modalListener = require('./event-listeners/modal');
 const parseCookieString = require('./general/cookie');
 const {pageDisplay} = require('./general/page');
 const navListener = require('./event-listeners/nav');
@@ -23,7 +23,7 @@ let state = {
     end: null,
     mood: null
   },
-  timer: timer(document.getElementById('timer-module'), {duration: 1e3, interval: 200}, ringBell),
+  timer: timer(document.getElementById('timer-module'), {duration: 1e3, interval: 1000}, ringBell),
 };
 
 const cookies = document.cookie;
@@ -61,7 +61,7 @@ countdownListener(stopwatch, state);
 
 
 let modalSubmit = document.getElementById('modal-submit');
-formListener(modalSubmit, state);
+modalListener(modalSubmit, state);
 
 
 let settings = document.getElementById('settings-save-button');

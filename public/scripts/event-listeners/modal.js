@@ -1,11 +1,11 @@
 const togglePlayButton = require('../render/toggle-play-button');
 const ringBell = require('./countdown').ringBell;
+const startTimerHelper = require('./countdown').startTimerHelper;
 
-function formListener(form, state) {
+function modalListener(form, state) {
   const note = document.getElementById('modal-note');
 
   form.addEventListener('click', event => {
-    console.log('click');
     if(event.target.classList.contains('mood-feedback')) {
       state.currentSession.mood = event.target.getAttribute('data-mood');
       note.classList.remove('hidden');
@@ -14,9 +14,7 @@ function formListener(form, state) {
 
   form.addEventListener('submit', event => {
     event.preventDefault();
-    console.log('submit');
     state.history.push(state.currentSession);
-
     $.ajax('/me', {
       method: 'PUT',
       data: {
@@ -35,26 +33,27 @@ function formListener(form, state) {
     event.preventDefault();
     const wrapperElement = document.getElementById('timer-module');
     note.classList.add('hidden');
-
+    togglePlayButton(wrapperElement);
     state.timer.start(state.settings.break*1e3, function() {
       ringBell.call(this);
       $('#resume-modal').modal('show');
     });
-    togglePlayButton(wrapperElement);
   });
 
   document.getElementById('resume-modal')
   .querySelector('.modal-button')
   .addEventListener('click', event => {
-    // event.preventDefault();
     const wrapperElement = document.getElementById('timer-module');
     togglePlayButton(wrapperElement);
     $('#resume-modal').modal('hide');
     state.timer.start(state.settings.work*1e3, function() {
       $('#feedback-modal').modal('show');
       ringBell.call(this);
+      state.currentSession.end = new Date();
     });
+    state.currentSession.start = new Date();
+
   })
 }
 
-module.exports = formListener;
+module.exports = modalListener;

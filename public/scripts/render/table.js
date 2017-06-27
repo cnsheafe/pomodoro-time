@@ -24,23 +24,22 @@ function populateTable(state) {
 
 function drawTimeline(dates, container) {
   if(dates.length) {
-containerWidth
   // const container = document.getElementById('timeline-page');
-  google.charts
-    .load('current', {'packages':['timeline']});
-  const chart = new google.visualization.Timeline(container);
-  const table = new google.visualization.DataTable();
-  table.addColumn({type: 'string', id: 'Day'});
-  table.addColumn({type: 'string', id: 'Mood'});
-  table.addColumn({type:'date', id: 'Start'});
-  table.addColumn({type: 'date', id: 'End'});
-  table.addRows(dates);
-  console.log("This is dates", dates);
-  chart.draw(table, {
-    // width: 1000
-    width: container.offsetWidth
-  });
-}
+    google.charts
+      .load('current', {'packages':['timeline']});
+    const chart = new google.visualization.Timeline(container);
+    const table = new google.visualization.DataTable();
+    table.addColumn({type: 'string', id: 'Day'});
+    table.addColumn({type: 'string', id: 'Mood'});
+    table.addColumn({type:'date', id: 'Start'});
+    table.addColumn({type: 'date', id: 'End'});
+    table.addRows(dates);
+    console.log("This is dates", dates);
+    chart.draw(table, {
+      // width: 1000
+      width: container.offsetWidth
+    });
+  }
 }
 
 module.exports = {drawTimeline, populateTable};
