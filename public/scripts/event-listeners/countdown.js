@@ -11,12 +11,12 @@ function countdownListener(container, state) {
         .value*60;
       state.timer.start(state.settings.work*1e3, function() {
         ringBell.call(this);
+        state.currentSession.end = new Date();
         $('#feedback-modal').modal('show');
       });
 
       state.currentSession = {};
       state.currentSession.start = new Date();
-
       togglePlayButton(container);
     }
 

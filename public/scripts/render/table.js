@@ -22,10 +22,10 @@ function populateTable(state) {
   }
 
 
-function drawTimeline(dates, containerWidth) {
+function drawTimeline(dates, container) {
   if(dates.length) {
-
-  const container = document.getElementById('timeline-page');
+containerWidth
+  // const container = document.getElementById('timeline-page');
   google.charts
     .load('current', {'packages':['timeline']});
   const chart = new google.visualization.Timeline(container);
@@ -38,7 +38,7 @@ function drawTimeline(dates, containerWidth) {
   console.log("This is dates", dates);
   chart.draw(table, {
     // width: 1000
-    width: containerWidth
+    width: container.offsetWidth
   });
 }
 }

@@ -5,20 +5,20 @@ function timelineListener(timeline, state) {
 
   timeline.addEventListener('click', event => {
     event.preventDefault();
-    timelineHelper(state, document.getElementById('timeline-page'));
+    timelineHelper(state, document.getElementById('timeline-container'));
   });
   window.onresize = function() {
-    timelineHelper(state, document.getElementById('timeline-page'));
+    timelineHelper(state, document.getElementById('timeline-container'));
   };
 }
 
-function timelineHelper(state, width) {
+function timelineHelper(state, container) {
   google.charts
     .load('current', {'packages':['timeline']});
   const data = populateTable(state);
   google.charts.setOnLoadCallback(
     function() {
-      drawTimeline(data, width);
+      drawTimeline(data, container);
   });
   if(!data.length) {
     document.getElementById('empty-timeline').classList.remove('hide');
