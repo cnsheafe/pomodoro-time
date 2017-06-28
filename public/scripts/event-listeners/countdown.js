@@ -6,9 +6,9 @@ function countdownListener(container, state) {
 
     if(container.querySelector('.glyphicon-play')) {
       state.settings.work = document.getElementById('countdown-work')
-        .value;
+        .value*60;
       state.settings.break = document.getElementById('countdown-break')
-        .value;
+        .value*60;
       startTimerHelper(state);
     }
 
