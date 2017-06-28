@@ -5,15 +5,14 @@ function countdownListener(container, state) {
     event.preventDefault();
 
     if(container.querySelector('.glyphicon-play')) {
-        state.settings.work = document.getElementById('countdown-work')
-          .value*60;
-        state.settings.break = document.getElementById('countdown-break')
-          .value*60;
-        startTimerHelper(state);
-      }
+      state.settings.work = document.getElementById('countdown-work')
+        .value;
+      state.settings.break = document.getElementById('countdown-break')
+        .value;
+      startTimerHelper(state);
+    }
 
     else if (container.querySelector('.glyphicon-stop')) {
-      // window.clearTimeout(state.timeoutId);
       state.timer.stop();
       togglePlayButton(container);
     }
