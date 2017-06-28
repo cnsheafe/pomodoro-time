@@ -84,6 +84,15 @@ $timer-gray: #e0e0e0;
   z-index: 25;
 }
 
+.first-half {
+  .background-border-left {
+    z-index: 25;
+  }
+  .filler {
+    z-index: 75;
+  }
+}
+
 form.timer {
   z-index: 600;
 }

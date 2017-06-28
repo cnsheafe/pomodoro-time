@@ -63,9 +63,20 @@ class Timer {
 
   draw(progress, max) {
     if (progress/max > 0.5) {
+      // let spinner = this.container.querySelector('.spinner')
+      //   .animate([
+      //     {transform: 'rotate(0)'},
+      //     {transform: 'rotate(360deg)'}
+      //   ]);
+      // this.container.querySelector('.')
       this.container.querySelector('.background-border-left').setAttribute('style', `z-index: 25`);
       this.container.querySelector('.filler').setAttribute('style', 'z-index: 75');
+      this.container.classList.add('first-half');
     }
+    else {
+      this.container.classList.remove('first-half');
+    }
+
     this.container.querySelector('.spinner').setAttribute('style', `transform: rotate(${progress/max*360}deg)`);
   }
 }
