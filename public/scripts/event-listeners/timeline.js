@@ -27,4 +27,4 @@ function timelineHelper(state, container) {
     document.getElementById('empty-timeline').classList.add('hide');
   }
 }
-module.exports = timelineListener;
+module.exports = {timelineListener, timelineHelper};
