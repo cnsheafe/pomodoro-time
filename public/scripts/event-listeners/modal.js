@@ -1,6 +1,7 @@
 const togglePlayButton = require('../render/toggle-play-button');
 const ringBell = require('./countdown').ringBell;
 const startTimerHelper = require('./countdown').startTimerHelper;
+const timelineHelper = require('./timeline').timelineHelper;
 
 function modalListener(form, state) {
   const note = document.getElementById('modal-note');
@@ -14,6 +15,7 @@ function modalListener(form, state) {
 
   form.addEventListener('submit', event => {
     event.preventDefault();
+    console.log(state.currentSession);
     state.history.push(state.currentSession);
     $.ajax('/me', {
       method: 'PUT',
@@ -24,7 +26,8 @@ function modalListener(form, state) {
       }
     })
     .then(() => {
-      $('#feedback-modal').modal('hide')
+      $('#feedback-modal').modal('hide');
+      timelineHelper(state, document.getElementById('timeline-container'));
     });
   });
 
@@ -40,20 +43,16 @@ function modalListener(form, state) {
     });
   });
 
-  document.getElementById('resume-modal')
-  .querySelector('.modal-button')
-  .addEventListener('click', event => {
-    const wrapperElement = document.getElementById('timer-module');
-    togglePlayButton(wrapperElement);
-    $('#resume-modal').modal('hide');
-    state.timer.start(state.settings.work*1e3, function() {
-      $('#feedback-modal').modal('show');
-      ringBell.call(this);
-      state.currentSession.end = new Date();
-    });
-    state.currentSession.start = new Date();
-
-  })
 }
-
-module.exports = modalListener;
+function resumeModalListener(modal, state) {
+  modal
+    .querySelector('.modal-button')
+    .addEventListener('click', event => {
+      const wrapperElement = document.getElementById('timer-module');
+      togglePlayButton(wrapperElement);
+      $('#resume-modal').modal('hide');
+      console.log(state);
+      startTimerHelper(state);
+    })
+};
+module.exports = {modalListener, resumeModalListener};
