@@ -17,14 +17,12 @@ function populateTable(state) {
       ]);
     }
   });
-  console.log(recentDates);
   return recentDates;
   }
 
 
 function drawTimeline(dates, container) {
   if(dates.length) {
-  // const container = document.getElementById('timeline-page');
     google.charts
       .load('current', {'packages':['timeline']});
     const chart = new google.visualization.Timeline(container);
@@ -34,9 +32,7 @@ function drawTimeline(dates, container) {
     table.addColumn({type:'date', id: 'Start'});
     table.addColumn({type: 'date', id: 'End'});
     table.addRows(dates);
-    console.log("This is dates", dates);
     chart.draw(table, {
-      // width: 1000
       width: container.offsetWidth
     });
   }
