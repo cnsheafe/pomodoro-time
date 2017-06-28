@@ -1,8 +1,8 @@
 class Timer {
-  constructor(container, settings, callback) {
+  constructor(container, settings) {
     container.setAttribute('style', `height: ${container.offsetWidth}px`);
 
-    window.addEventListener('resize',event =>
+    window.addEventListener('resize', event =>
       container.setAttribute('style', `height: ${container.offsetWidth}px`)
     );
     this.container = container;
@@ -58,7 +58,6 @@ class Timer {
 
   stop() {
     clearTimeout(this.timeoutId);
-    // this.callback.call(this);
   }
 
 
@@ -71,6 +70,6 @@ class Timer {
   }
 }
 
-module.exports = function(container, settings, callback) {
-  return new Timer(container, settings, callback);
+module.exports = function(container, settings) {
+  return new Timer(container, settings);
 };
