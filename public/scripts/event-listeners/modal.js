@@ -15,8 +15,9 @@ function modalListener(form, state) {
 
   form.addEventListener('submit', event => {
     event.preventDefault();
-    console.log(state.currentSession);
-    state.history.push(state.currentSession);
+    console.log("form: ", state.currentSession);
+    const currentSession = Object.assign({}, state.currentSession);
+    state.history.push(currentSession);
     $.ajax('/me', {
       method: 'PUT',
       data: {
