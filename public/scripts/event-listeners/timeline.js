@@ -2,7 +2,7 @@ const {drawTimeline, populateTable} = require('../render/table');
 
 
 function timelineListener(timeline, state) {
-
+  
   timeline.addEventListener('click', event => {
     event.preventDefault();
     timelineHelper(state, document.getElementById('timeline-container'));
