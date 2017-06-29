@@ -5895,34 +5895,33 @@ button.close {
     .glyphicon-play, .glyphicon-stop {
       font-size: 115px; } }
 
-.filler, .background-border-right, .spinner, .background-border-left {
-  border: 5px solid;
+.spinner-right, .hide-right, .spinner-left, .hide-left {
+  border: 5px solid #e0e0e0;
   border-radius: 50%;
   clip-path: inset(0 50% 0 0); }
 
-.filler, .background-border-right {
+.spinner-right, .hide-right {
   clip-path: inset(0 0 0 50%); }
 
-.spinner {
+.spinner-left {
   border-color: #0fff34;
-  z-index: 50; }
+  z-index: 50;
+  opacity: 1; }
 
-.filler {
+.spinner-right {
   border-color: #0fff34;
-  z-index: 0; }
+  z-index: 125;
+  transform: rotate(180deg);
+  opacity: 0; }
 
-.background-border-left {
-  border-color: #e0e0e0;
-  z-index: 100; }
+.hide-left {
+  z-index: 100;
+  opacity: 1; }
 
-.background-border-right {
-  border-color: #e0e0e0;
-  z-index: 25; }
-
-.first-half .background-border-left {
-  z-index: 25; }
-.first-half .filler {
-  z-index: 75; }
+.hide-right {
+  background: none;
+  z-index: 25;
+  opacity: 1; }
 
 form.timer, form.timer-button {
   z-index: 600; }
