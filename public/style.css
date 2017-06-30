@@ -5863,7 +5863,8 @@ button.close {
   padding-right: 15px;
   margin-left: 16.66667%;
   margin-top: 25px;
-  position: relative; }
+  position: relative;
+  height: 100%; }
   @media screen and (min-width: 768px) {
     .timer-wrapper {
       position: relative;
