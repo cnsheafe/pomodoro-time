@@ -3,9 +3,12 @@ class Timer {
 
     container.setAttribute('style', `height: ${container.offsetWidth}px`);
 
-    window.addEventListener('resize', event =>
+    window.addEventListener('resize', event => {
+      if(container.offsetWidth > 0) {
       container.setAttribute('style', `height: ${container.offsetWidth}px`)
-    );
+      console.log(container.offsetWidth); 
+      }
+    });
 
     this.container = container;
     container.innerHTML =

@@ -2,10 +2,12 @@ const {drawTimeline, populateTable} = require('../render/table');
 
 
 function timelineListener(timeline, state) {
-  
+
   timeline.addEventListener('click', event => {
     event.preventDefault();
-    timelineHelper(state, document.getElementById('timeline-container'));
+    setTimeout(function() {
+      timelineHelper(state, document.getElementById('timeline-container'));
+    }, 10)
   });
   window.onresize = function() {
     timelineHelper(state, document.getElementById('timeline-container'));
