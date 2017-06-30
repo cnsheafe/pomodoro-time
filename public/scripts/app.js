@@ -71,3 +71,11 @@ settingsListener(settings, state);
 
 let timeline = document.getElementById('timeline-button');
 timelineListener(timeline, state);
+
+document.getElementById('timer-button')
+  .addEventListener('click', event => {
+    setTimeout(function() {
+      const container = document.getElementById('timer-module');
+      container.setAttribute('style', `height: ${container.offsetWidth}px`)
+    }, 10)
+  })

@@ -33,7 +33,8 @@ function drawTimeline(dates, container) {
     table.addColumn({type: 'date', id: 'End'});
     table.addRows(dates);
     chart.draw(table, {
-      width: container.offsetWidth
+      width: container.parentNode.offsetWidth,
+      height: container.parentNode.offsetHeight
     });
   }
 }

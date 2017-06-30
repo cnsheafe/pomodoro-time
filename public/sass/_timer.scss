@@ -8,7 +8,7 @@ $timer-gray: #e0e0e0;
   @include make-xs-column-offset(2);
   margin-top: 25px;
   position: relative;
-
+  height: 100%;
   @media screen and (min-width: 768px) {
     @include make-xs-column(6);
     @include make-xs-column-offset(3);
@@ -43,14 +43,13 @@ $timer-gray: #e0e0e0;
 
 .glyphicon-stop {
   @extend .glyphicon-play;
-  // left: 25%;
 
   @media screen and (min-width: 768px) {
   }
 }
 
 %show-right {
-  border: 5px solid;
+  border: 5px solid $timer-gray;
   border-radius: 50%;
   clip-path: inset(0 50% 0 0);
 }
@@ -60,38 +59,34 @@ $timer-gray: #e0e0e0;
   clip-path: inset(0 0 0 50%);
 }
 
-.spinner {
+.spinner-left {
   @extend %show-right;
   border-color: $timer-color;
   z-index: 50;
+  opacity: 1;
 }
 
-.filler {
+.spinner-right {
   @extend %show-left;
   border-color: $timer-color;
-  z-index: 0;
+  z-index: 125;
+  transform: rotate(180deg);
+  opacity: 0;
 }
 
-.background-border-left {
+.hide-left {
   @extend %show-right;
-  border-color: $timer-gray;
   z-index: 100;
+  opacity: 1;
 }
 
-.background-border-right {
+.hide-right {
   @extend %show-left;
-  border-color: $timer-gray;
+  background: none;
   z-index: 25;
+  opacity: 1;
 }
 
-.first-half {
-  .background-border-left {
-    z-index: 25;
-  }
-  .filler {
-    z-index: 75;
-  }
-}
 
 form.timer {
   z-index: 600;
