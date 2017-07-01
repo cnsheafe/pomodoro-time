@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
 			const user = data.user;
       // console.log(user._id);
       res.cookie('pomodoro', `${user._id}`);
-      res.redirect(`/?${user.username}`);
+      res.redirect(`/app?${user.username}`);
 		}
 		else {
 			res.status(422).json({msg: data.msg})
