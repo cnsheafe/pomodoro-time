@@ -1,9 +1,9 @@
 const path = require('path');
 
 module.exports = {
-  entry: './public/scripts/app.js',
+  entry: './public/app/scripts/app.js',
   output: {
     filename: 'app.min.js',
-    path: path.resolve(__dirname,'public')
+    path: path.resolve(__dirname,'public/app')
   }
 };
