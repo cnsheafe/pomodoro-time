@@ -29,7 +29,6 @@ app.use(passport.initialize());
 
 let server; //used if server is called for testing
 mongoose.connect(DATABASE_URL);
-// mongoose.connect('mongodb://localhost/data');
 
 
 function runServer(port=PORT) {

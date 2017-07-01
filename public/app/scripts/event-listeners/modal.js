@@ -18,7 +18,7 @@ function modalListener(form, state) {
     console.log("form: ", state.currentSession);
     const currentSession = Object.assign({}, state.currentSession);
     state.history.push(currentSession);
-    $.ajax('/me', {
+    $.ajax('../me', {
       method: 'PUT',
       data: {
         username: state.username,

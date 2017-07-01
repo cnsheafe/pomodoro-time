@@ -1,193 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>PomodoroTime</title>
-  <!-- Meta-data and other general info -->
-  <meta charset="utf-8">
-  <meta name="description" content="A Time-management App">
-  <meta name="author" content="Christofer Sheafe">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="application-name" content="PomodoroTime">
-  <meta name="keywords" content="Pomodoro,productivity,time,free">
-  <!-- Material Icons Font -->
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- Google Fonts -->
- <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css?family=Asul|Kavoon">
-  <!-- App-specific CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- jQuery necessary for bootstrap Javascript -->
-  <script
-	  src="https://code.jquery.com/jquery-3.2.1.min.js"
-	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-	  crossorigin="anonymous" defer></script>
-  <!-- Latest compiled and minified bootstrap JavaScript -->
-  <script
-    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-    crossorigin="anonymous" defer></script>
-  <!-- Google Charts for timeline   -->
-  <script
-    src="https://www.gstatic.com/charts/loader.js" defer></script>
-  <!-- App-specific JS -->
-  <script src="app.min.js" defer></script>
-</head>
+<html>
+  <head>
+    <title>PomodoroTime</title>
+    <!-- Meta-data and other general info -->
+    <meta charset="utf-8">
+    <meta name="description" content="A Time-management App">
+    <meta name="author" content="Christofer Sheafe">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="application-name" content="PomodoroTime">
+    <meta name="keywords" content="Pomodoro,productivity,time,free">
+    <link
+      rel="stylesheet"
+      href="https://fonts.googlepais.con/css?family=Asul|Kavoon">
+    <link rel="stylesheet" href="style.css">
+    <!-- jQuery necessary for bootstrap Javascript -->
+    <script
+  	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  	  crossorigin="anonymous" defer></script>
+    <!-- Latest compiled and minified bootstrap JavaScript -->
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous" defer></script>
+    <script src="app.js" defer></script>
+  </head>
 
-<div role="modals">
-  <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">End of Session</h2>
-        </div>
-        <div class="modal-body">
-          <h3>How was your session?</h3>
-          <form id="modal-submit" class="form-mood">
-            <button type="button"
-              class="btn btn-default mood-feedback"
-              data-mood="good">
-              <i class="material-icons">mood</i>
-            </button>
-            <button type="button"
-              class="btn btn-default xs-col-offset-1 mood-feedback" data-mood="bad">
-              <i class="material-icons">mood_bad</i>
-            </button>
-            <button type="button"
-              class="btn btn-default mood-feedback xs-col-offset-1"
-              data-mood="ok">
-              <i class="material-icons">sentiment_neutral</i>
-            </button>
-          </form>
-          <div id="modal-note" class="hidden">
-            <h3>Session Note(optional)</h3>
-            <textarea id="session-notes" class="form-control" rows="4" cols="40" placeholder="My session was..."></textarea>
-            <div class="modal-button">
-              <button type="submit" class="btn btn-primary"  form="modal-submit">Begin Break</button>
-            </div>
+  <body>
+    <header class="">
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+          <div class="title-bar">
+            <h1>PomodoroTime</h1>
+            <ul>
+              <li>
+                <a href="/login"
+                  class="btn btn-default">Login</a>
+              </li>
+              <li>
+                <a href="/signup"
+                  class="btn btn-default">Signup</a>
+              </li>
+            </ul>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="resume-modal" class="modal fade"
-    tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close"
-            data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 class="modal-title">Break done!</h3>
-        </div>
-        <div class="modal-body">
-          <div class="modal-button">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Resume Work</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="about-modal" class="modal fade"
-    tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close"
-            data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 class="modal-title">About PomodoroTime</h3>
-          <div class="modal-body">
-            <p>PomodoroTime is a productivity app based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">Pomodoro Method</a>. The idea is that work tasks are broken down into short work periods with breaks in between. If you are using an account, the app will also keep track of your work sessions so you can gauge times you work best.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<body>
-  <header class="container-fluid">
-    <h1 class="text-center title">PomodoroTime</h1>
-    <div class="btn-group" id="account-interface" role="group" aria-label="...">
-      <div id="nav-controls" class="btn-group" role="group" aria-label="...">
-        <a href="/signup" class="btn btn-default">Signup</a>
-        <a href="/login" class="btn btn-default">Login/Demo</a>
-        <a href="#timer-page" id="timer-button"
-          role="button" data-page="timer-page" class="btn btn-default hide">
-          Timer</a>
-        <a href="#settings-page"
-          id="settings-button" role="button" data-page="settings-page" class="btn btn-default hide">
-          Settings</a>
-        <a href="#timeline-page"
-          id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default hide">
-          Timeline</a>
-        <a href="#about"
-          id="about-button" role="button" class="btn btn-default"
-          data-toggle="modal"
-          data-target="#about-modal">
-          What is this?</a>
-      </div>
-    </div>
-  </header>
-
-  <main class="container">
-    <div id="timer-page" class="page">
-      <section id="timer-module"
-        class="timer-wrapper"></section>
-      <section class="row">
-        <div class="col-xs-12">
-          <form id="stopwatch" class="form-horizontal stopwatch-settings">
-            <div class="form-group col-xs-6">
-              <label
-                for="countdown-work"
-                class="control-label col-xs-2">Work</label>
-              <input id="countdown-work"
-                type="number" class="form-control input-lg" required="" max="60"
-                value="25" step="1" autocomplete="off">
-            </div>
-
-            <div class="form-group col-xs-6">
-              <label
-                for="countdown-break"
-                class="control-label col-xs-2">Break</label>
-              <input id="countdown-break"
-                type="number" class="form-control input-lg" required="" max="60" step="1" value="5" autocomplete="off">
-            </div>
-          </form>
         </div>
+      </nav>
+    </header>
+    <main class="">
+      <section class="jumbotron container">
+        <h2>PomodoroTime</h2>
+        <p>A simple time-tracking app to help people manage their time and energy more effectively.</p>
+        <button id="demo-button"
+          type="button"
+          class="btn btn-primary btn-lg">Try the demo!</button>
       </section>
-    </div>
-
-    <div id="settings-page" class="page hide">
-      <div class="timer-settings col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-        <h2>Default Session Durations</h2>
-        <div class="input-group">
-          <span class="input-group-addon">Work</span>
-          <input type="number" id="default-work"
-            class="form-control" name="work" value="25">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon">Break</span>
-          <input type="number" id="default-break"
-            class="form-control" name="break" value="5">
-        </div>
-        <button id="settings-save-button"
-          type="button" class="btn btn-default">
-          Save</button>
-      </div>
-    </div>
-
-    <div id="timeline-page" class="col-xs-12 page hide">
-      <div id="timeline-container"></div>
-      <div id="empty-timeline" class="hide">
-        <h2>Empty! Try a work session to track your progress.</h2>
-      </div>
-    </div>
-
-  </main>
-</body>
+      <section class="container">
+        <h2>How does it work?</h2>
+        <p>Time is broken down into two periods: work and breaks. The timer will first begin a work period for the set amount of time. During this time, you work on a single task without distractions. When time is up, you rate your session experience and start a break. This method encourages breaking down larger tasks into smaller ones that could be completed with a small timeframe such as 25 minutes.</p>
+      </section>
+    </main>
+  </body>
 </html>

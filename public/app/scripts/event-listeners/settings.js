@@ -12,7 +12,7 @@ function settingsListener(settings, state) {
 
     $.ajax({
       method: 'PUT',
-      url: '/me',
+      url: '../me',
       data : {
         id: state.cookie.val,
         username: state.username,

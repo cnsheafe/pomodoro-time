@@ -32,7 +32,7 @@ parseCookieString(cookies, state);
 
 $.ajax({
   method: 'GET',
-  url: `/me`,
+  url: `../me`,
   data: {
     username: state.username,
     id: state.cookie.val
