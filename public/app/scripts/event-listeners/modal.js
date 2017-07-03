@@ -7,6 +7,8 @@ function modalListener(form, state) {
   const note = document.getElementById('modal-note');
 
   form.addEventListener('click', event => {
+    console.log(event.target);
+    console.log(event.target.tagName);
     if(event.target.classList.contains('mood-feedback')) {
       state.currentSession.mood = event.target.getAttribute('data-mood');
       note.classList.remove('hidden');

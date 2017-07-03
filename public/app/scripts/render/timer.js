@@ -6,7 +6,7 @@ class Timer {
     window.addEventListener('resize', event => {
       if(container.offsetWidth > 0) {
       container.setAttribute('style', `height: ${container.offsetWidth}px`)
-      console.log(container.offsetWidth); 
+      console.log(container.offsetWidth);
       }
     });
 
@@ -39,33 +39,16 @@ class Timer {
     this.anim = {};
   }
 
-  update() {
-    let [duration, interval] = Object.values(this.settings);
-    if(this.counter.count * interval < duration) {
-      ++this.counter.count;
-      interval -= performance.now() - (this.counter.epoch + this.settings.interval*(this.counter.count-1));
-
-      this.timeoutId = setTimeout(() => {
-        this.update();
-      }, Math.floor(interval));
-    }
-    else {
-      this.callback.call(this);
-    }
-  }
-
   start(duration, callback) {
     this.settings.duration = duration || this.settings.duration;
     this.counter.count = 0;
     this.callback = callback;
     this.counter.epoch = performance.now();
     this.draw();
-    this.update();
   }
 
   stop() {
     clearTimeout(this.timeoutId);
-    console.log(this.anim);
     this.anim.spinnerLeft.pause();
     for (let animation in this.anim) {
       this.anim[animation].pause();
@@ -101,6 +84,10 @@ class Timer {
         duration: this.settings.duration,
         easing: 'steps(2)'
       })
+    this.anim.rightOpa.onfinish = () => {
+      this.anim.spinnerLeft.cancel();
+      this.callback.call(this);
+    }
   }
 }
 

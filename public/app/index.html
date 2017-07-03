@@ -45,20 +45,18 @@
         <div class="modal-body">
           <h3>How was your session?</h3>
           <form id="modal-submit" class="form-mood">
-            <button type="button"
-              class="btn btn-default mood-feedback"
-              data-mood="good">
-              <i class="material-icons">mood</i>
-            </button>
-            <button type="button"
-              class="btn btn-default xs-col-offset-1 mood-feedback" data-mood="bad">
-              <i class="material-icons">mood_bad</i>
-            </button>
-            <button type="button"
-              class="btn btn-default mood-feedback xs-col-offset-1"
-              data-mood="ok">
-              <i class="material-icons">sentiment_neutral</i>
-            </button>
+            <i type="button"
+              class="material-icons btn btn-default mood-feedback happy-face"
+              data-mood="good">mood
+            </i>
+            <i type="button"
+              class="material-icons btn btn-default xs-col-offset-1 mood-feedback sad-face"
+              data-mood="bad">mood_bad
+            </i>
+            <i type="button"
+              class="material-icons btn btn-default mood-feedback xs-col-offset-1 okay-face"
+              data-mood="ok">sentiment_neutral
+            </i>
           </form>
           <div id="modal-note" class="hidden">
             <h3>Session Note(optional)</h3>
