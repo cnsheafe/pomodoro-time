@@ -1,8 +1,13 @@
 function populateTable(state) {
   let recentDates = [];
   const now = new Date();
-  const beginMs = now.setDate(now.getDate() - now.getDay()).valueOf();
-  const endMs = now.setDate(now.getDate() + 6 ).valueOf();
+  now.setDate(now.getDate() - now.getDay());
+  now.setHours(0, 0 ,0);
+  const beginMs = now.valueOf();
+
+  now.setDate(now.getDate() + 6);
+  now.setHours(23, 59, 59);
+  const endMs = now.valueOf();
 
   state.history.forEach(session => {
     let start = new Date(session.start);
@@ -12,13 +17,13 @@ function populateTable(state) {
         {0: 'Sunday', 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday',
         4: 'Thursday', 5: 'Friday', 6: 'Saturday'}[start.getDay()],
         session.mood,
-        start,
-        end
+        new Date(0, 0, 0, start.getHours(), start.getMinutes(), start.getSeconds()),
+        new Date(0, 0, 0, end.getHours(), end.getMinutes(), end.getSeconds()),
       ]);
     }
   });
   return recentDates;
-  }
+}
 
 
 function drawTimeline(dates, container) {
@@ -32,9 +37,17 @@ function drawTimeline(dates, container) {
     table.addColumn({type:'date', id: 'Start'});
     table.addColumn({type: 'date', id: 'End'});
     table.addRows(dates);
+
     chart.draw(table, {
       width: container.parentNode.offsetWidth,
-      height: container.parentNode.offsetHeight
+      height: container.parentNode.offsetHeight,
+      hAxis: {
+        viewWindow: {
+          min: new Date(0, 0, 0, 0, 0, 0),
+          max: new Date(0, 0, 0, 23, 59, 59)
+        },
+        format: 'h:m aa'
+      }
     });
   }
 }

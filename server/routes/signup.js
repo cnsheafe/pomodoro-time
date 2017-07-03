@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
 		}, null)
 		.then(user => {
       res.cookie('pomodoro', user._id);
-			return res.redirect(`/?${user.username}`);
+			return res.redirect(`/app?${user.username}`);
 		})
 		.catch(err => {
       if (err.err === 'username') {

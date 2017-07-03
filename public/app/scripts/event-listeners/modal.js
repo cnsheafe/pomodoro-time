@@ -7,6 +7,8 @@ function modalListener(form, state) {
   const note = document.getElementById('modal-note');
 
   form.addEventListener('click', event => {
+    console.log(event.target);
+    console.log(event.target.tagName);
     if(event.target.classList.contains('mood-feedback')) {
       state.currentSession.mood = event.target.getAttribute('data-mood');
       note.classList.remove('hidden');
@@ -50,7 +52,7 @@ function resumeModalListener(modal, state) {
     .querySelector('.modal-button')
     .addEventListener('click', event => {
       const wrapperElement = document.getElementById('timer-module');
-      togglePlayButton(wrapperElement);
+      // togglePlayButton(wrapperElement);
       $('#resume-modal').modal('hide');
       console.log(state);
       startTimerHelper(state);
