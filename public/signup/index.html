@@ -15,11 +15,16 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
       crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+  <script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous" defer></script>
+  <script src="app.js" defer></script>
 </head>
 <body class="container">
   <main class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
     <h2>Signup for Pomodoro</h2>
-    <form action="/signup" method="post">
+    <form id="signup-form">
       <div class="form-group">
         <label for="username-input">Username</label>
         <input type="text" id="username-input" class="form-control" name="username" autocomplete="off" autofocus="" inputmode="verbatim" maxlength="24" required="">
@@ -27,9 +32,10 @@
       <div class="form-group">
         <label for="password-input">Password</label>
         <input type="password" id="password-input" class="form-control" name="password" inputmode="verbatim" maxlength="24" min="8" required="">
+        <span id="msg-block" class="help-block show-error hide"></span>
       </div>
       <p><a href="/login">Already have an account? Log in</a></p>
-      <button type="submit" class="btn btn-primary">Signup</button>
+      <button id="submit-button" type="submit" class="btn btn-primary">Signup</button>
     </form>
   </main>
 </body>
