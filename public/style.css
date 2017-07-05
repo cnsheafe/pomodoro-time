@@ -5808,42 +5808,45 @@ button.close {
     display: none !important; } }
 .title-bar {
   display: flex;
-  justify-content: center;
-  text-align: center;
-  flex-direction: column; }
+  flex-direction: column;
+  text-align: center; }
+  .title-bar > * {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px; }
+    @media (min-width: 768px) {
+      .title-bar > * {
+        float: left;
+        width: 41.66667%; } }
   @media screen and (min-width: 768px) {
     .title-bar {
       flex-direction: row; }
       .title-bar h1 {
-        flex-grow: 1; } }
+        justify-content: flex-start;
+        margin-left: 15px; } }
   .title-bar ul {
-    list-style: none;
     display: inline-flex;
-    justify-content: center; }
+    justify-content: center;
+    list-style: none; }
+    @media (min-width: 768px) {
+      .title-bar ul {
+        margin-left: 8.33333%; } }
     @media screen and (min-width: 768px) {
       .title-bar ul {
+        justify-content: flex-end;
         margin-top: 25px; } }
     .title-bar ul a {
       margin-right: 15px; }
 
 main {
   margin-top: 70px; }
-  main span {
-    position: relative;
-    float: left;
-    width: 83.33333%;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: 8.33333%;
-    position: relative;
-    min-height: 1px;
-    padding-left: 15px;
-    padding-right: 15px; }
-    @media (min-width: 768px) {
-      main span {
-        float: left;
-        width: 41.66667%; } }
+  main .row h2 {
+    font-size: 22px;
+    text-align: center; }
+    @media screen and (min-width: 768px) {
+      main .row h2 {
+        font-size: 28px; } }
   main .row p {
     font-size: 16px; }
     @media screen and (min-width: 768px) {
@@ -5851,6 +5854,9 @@ main {
         font-size: 22px; } }
   main .row img.center-block {
     width: 75%;
+    height: auto; }
+  main .timeline-img {
+    width: 100%;
     height: auto; }
 
 .jumbotron {
