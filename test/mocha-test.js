@@ -37,8 +37,7 @@ describe('API test framework', () => {
 					.post('/signup')
 					.send({username: DUMMY_USERNAME, password: DUMMY_PASS})
 					.then(res => {
-						res.should.redirect;
-						res.should.have.status(200);
+						res.should.have.status(201);
 					})
 			})
 		});
