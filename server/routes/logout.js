@@ -21,9 +21,7 @@ mongoose.Promise = global.Promise;
 router.get('/', (req, res) => {
   console.log(req.cookies);
   res.clearCookie('pomodoro');
-  res.json({
-    msg: 'hello'
-  });
+  res.redirect('/login');
 });
 
 module.exports = router;
