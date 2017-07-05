@@ -48,8 +48,10 @@ describe('API test framework', () => {
 					.post('/login')
 					.send({username: DUMMY_USERNAME, password: DUMMY_PASS})
 					.then(res => {
-						expect(res).to.redirect;
-						res.should.have.status(200);
+						// console.log(res)
+						// expect(res).to.redirect;
+						res.should.have.cookie('pomodoro');
+						res.should.have.status(201);
 					});
 			})
 		});
@@ -70,12 +72,12 @@ describe('API test framework', () => {
 		});
 
 		describe('User logout: /logout', function() {
-			it('should clear cookies and return confirmation', function() {
+			it('should clear cookies and redirect back to login', function() {
 				return agent
 					.get('/logout')
 					.then(res => {
 						res.should.not.have.cookie('pomodoro');
-						res.body.should.keys('msg');
+						res.should.redirect;
 					});
 			});
 		});
