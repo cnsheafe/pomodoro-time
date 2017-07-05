@@ -5857,18 +5857,29 @@ button.close {
   padding-left: 15px;
   padding-right: 15px;
   margin-left: 16.66667%;
-  margin-top: 25px;
   position: relative;
-  height: 100%; }
-  @media screen and (min-width: 768px) {
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  height: 100%;
+  margin-top: 25px;
+  position: relative; }
+  @media (min-width: 768px) {
     .timer-wrapper {
-      position: relative;
       float: left;
-      width: 50%;
-      min-height: 1px;
-      padding-left: 15px;
-      padding-right: 15px;
+      width: 50%; } }
+  @media (min-width: 768px) {
+    .timer-wrapper {
       margin-left: 25%; } }
+
+.landscape-timer-wrapper {
+  position: relative;
+  float: left;
+  width: 33.33333%;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 33.33333%; }
 
 .timer, .timer-button {
   position: absolute;
