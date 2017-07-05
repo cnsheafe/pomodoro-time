@@ -1,9 +1,31 @@
 class Timer {
   constructor(container, settings) {
-
+    // console.log(new MediaQueryList());
+    // console.log(window.matchMedia('min-width: 768px'));
+    let mql = window.matchMedia('(max-width: 768px)');
+    if(mql.matches) {
+      if (window.innerHeight < window.innerWidth) {
+        container.classList.add('landscape-timer-wrapper');
+      }
+    }
     container.setAttribute('style', `height: ${container.offsetWidth}px`);
 
-    window.addEventListener('resize', event => {
+      window.addEventListener('resize', event => {
+        console.log('Window resized!');
+      if (mql.matches) {
+        console.log('mql match')
+        if (window.innerHeight < window.innerWidth) {
+          console.log('fuck')
+        container.classList.add('landscape-timer-wrapper');
+        }
+        else {
+          container.classList.remove('landscape-timer-wrapper')
+        }
+      }
+      else if(window.innerHeight < window.innerWidth){
+        console.log('should remove')
+        container.classList.remove('landscape-timer-wrapper');
+      }
       if(container.offsetWidth > 0) {
       container.setAttribute('style', `height: ${container.offsetWidth}px`)
       console.log(container.offsetWidth);
