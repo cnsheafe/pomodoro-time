@@ -5806,10 +5806,23 @@ button.close {
 @media print {
   .hidden-print {
     display: none !important; } }
+body {
+  background-color: #fbf6e6;
+  font-family: 'Rubik', sans-serif; }
+
+h1 {
+  font-family: 'Old Standard TT', serif; }
+
+header * {
+  background-color: #ff835a; }
+
 .title-bar {
+  color: #0f8630;
   display: flex;
-  flex-direction: column;
-  text-align: center; }
+  flex-direction: column; }
+  @media screen and (min-width: 768px) {
+    .title-bar {
+      flex-direction: row; } }
   .title-bar > * {
     position: relative;
     min-height: 1px;
@@ -5819,51 +5832,73 @@ button.close {
       .title-bar > * {
         float: left;
         width: 41.66667%; } }
-  @media screen and (min-width: 768px) {
-    .title-bar {
-      flex-direction: row; }
+  .title-bar h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px; }
+    @media screen and (min-width: 768px) {
       .title-bar h1 {
+        font-size: 36px;
         justify-content: flex-start;
-        margin-left: 15px; } }
+        text-align: left; } }
   .title-bar ul {
     display: inline-flex;
     justify-content: center;
     list-style: none; }
     @media (min-width: 768px) {
       .title-bar ul {
-        margin-left: 8.33333%; } }
+        margin-left: 16.66667%; } }
     @media screen and (min-width: 768px) {
       .title-bar ul {
         justify-content: flex-end;
-        margin-top: 25px; } }
+        margin-top: 20px; } }
     .title-bar ul a {
       margin-right: 15px; }
 
 main {
-  margin-top: 70px; }
-  main .row h2 {
-    font-size: 22px;
-    text-align: center; }
-    @media screen and (min-width: 768px) {
-      main .row h2 {
-        font-size: 28px; } }
-  main .row p {
-    font-size: 16px; }
-    @media screen and (min-width: 768px) {
-      main .row p {
-        font-size: 22px; } }
-  main .row img.center-block {
-    width: 75%;
-    height: auto; }
+  margin-top: 100px; }
+  main .row {
+    margin-bottom: 30px; }
+    main .row h2 {
+      font-size: 26px;
+      text-align: center; }
+      @media screen and (min-width: 768px) {
+        main .row h2 {
+          font-size: 32px; } }
+    main .row h3 {
+      font-size: 22px;
+      text-align: center; }
+      @media screen and (min-widht: 768px) {
+        main .row h3 {
+          font-size: 28px; } }
+    main .row p {
+      font-size: 16px;
+      text-align: center; }
+      @media screen and (min-width: 768px) {
+        main .row p {
+          font-size: 22px; } }
+    main .row img.center-block {
+      height: auto;
+      width: 75%; }
   main .timeline-img {
-    width: 100%;
-    height: auto; }
+    height: auto;
+    width: 100%; }
 
 .jumbotron {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: center; }
+  text-align: center;
+  background-image: url("./img/tomato-jumbotron.jpg");
+  background-size: cover;
+  background-blend-mode: darken;
+  background-color: #ff835a; }
+  .jumbotron h2 {
+    font-family: 'Old Standard TT';
+    font-weight: bold; }
+  .jumbotron h2,
+  .jumbotron p {
+    color: white; }
   .jumbotron button {
     position: relative;
     float: left;
@@ -5883,5 +5918,22 @@ main {
     @media (min-width: 768px) {
       .jumbotron button {
         margin-left: 25%; } }
+
+footer {
+  background-color: #ff835a; }
+  footer .navbar {
+    background-color: #ff835a;
+    border: none; }
+    footer .navbar a {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 30px; }
+    footer .navbar img {
+      width: 24px;
+      height: 24px; }
+  footer h4 {
+    color: #0f8630;
+    font-weight: bold;
+    margin-top: 30px; }
 
 /*# sourceMappingURL=style.css.map */

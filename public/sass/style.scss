@@ -1,32 +1,63 @@
 @import 'bootstrap';
 
+// $green:  #0fff34;
+$green: #0f8630;
+$red: #e57373;
+// $header-color: #ff194d;
+$bg-color: #fbf6e6;
+$orange: #ff835a;
+$header-color: $orange;
+
+body {
+  background-color: $bg-color;
+  font-family: 'Rubik', sans-serif;
+}
+
+h1 {
+  font-family: 'Old Standard TT', serif;
+}
+
+header {
+  * {
+    background-color: $header-color;
+  }
+}
+
 .title-bar {
+  color: $green;
   display: flex;
   flex-direction: column;
-  text-align: center;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 
   > * {
     @include make-sm-column(5);
   }
 
-  @media screen and (min-width: 768px) {
-    flex-direction: row;
-
-    h1 {
+  h1 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    @media screen and (min-width: 768px) {
+      font-size: 36px;
       justify-content: flex-start;
-      margin-left: 15px;
+      text-align: left;
     }
   }
 
+
+
   ul {
-    @include make-sm-column-offset(1);
+    @include make-sm-column-offset(2);
     display: inline-flex;
     justify-content: center;
     list-style: none;
 
     @media screen and (min-width: 768px) {
       justify-content: flex-end;
-      margin-top: 25px;
+      margin-top: 20px;
     }
 
     a {
@@ -36,20 +67,29 @@
 }
 
 main {
-  margin-top: 70px; //Navbar overlaps, a margin is needed
+  margin-top: 100px; //Navbar overlaps, a margin is needed
 
   .row {
+    margin-bottom: 30px;
 
     h2 {
+      font-size: 26px;
+      text-align: center;
+
+      @media screen and (min-width: 768px) {
+        font-size: 32px;
+      }
+    }
+    h3 {
       font-size: 22px;
       text-align: center;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-widht: 768px) {
         font-size: 28px;
       }
     }
-
     p {
       font-size: 16px;
+      text-align: center;
 
       @media screen and (min-width: 768px) {
         font-size: 22px;
@@ -57,16 +97,15 @@ main {
     }
 
     img.center-block {
-      width: 75%;
       height: auto;
+      width: 75%;
     }
-
   }
+
   .timeline-img {
-    width: 100%;
     height: auto;
+    width: 100%;
   }
-
 }
 
 .jumbotron {
@@ -74,10 +113,49 @@ main {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background-image: url('./img/tomato-jumbotron.jpg');
+  background-size: cover;
+  background-blend-mode: darken;
+  background-color: #ff835a;
+
+  h2 {
+    font-family: 'Old Standard TT';
+    font-weight: bold;
+  }
+
+  h2,
+  p {
+    color: white;
+  }
+
   button {
     @include make-xs-column(10);
     @include make-xs-column-offset(1);
     @include make-sm-column(6);
     @include make-sm-column-offset(3);
   }
+}
+
+footer {
+
+  background-color: $header-color;
+  .navbar {
+    background-color: $header-color;
+    border: none;
+    a {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 30px;
+    }
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  h4 {
+    color: $green;
+    font-weight: bold;
+    margin-top: 30px;
+  }
+
 }
