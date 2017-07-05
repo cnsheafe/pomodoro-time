@@ -5911,12 +5911,12 @@ button.close {
   clip-path: inset(0 0 0 50%); }
 
 .spinner-left {
-  border-color: #0fff34;
+  border-color: #0f8630;
   z-index: 50;
   opacity: 1; }
 
 .spinner-right {
-  border-color: #0fff34;
+  border-color: #0f8630;
   z-index: 125;
   transform: rotate(180deg);
   opacity: 0; }
@@ -5933,23 +5933,31 @@ button.close {
 form.timer, form.timer-button {
   z-index: 600; }
 
-* {
-  font-family: 'Asul', sans-serif; }
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: #fffff2; }
+
+h1,
+h2,
+h3 {
+  font-family: 'Old Standard TT', serif;
+  font-weight: bold; }
 
 header {
-  background-color: #ff194d;
-  color: #0fff34;
+  background-color: #ff835a;
+  color: #0f8630;
   padding-bottom: 10px; }
   header .title {
-    font-family: 'Kavoon', cursive;
+    font-family: 'Old Standard TT', serif;
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 30px;
     margin-top: 15px; }
     @media screen and (min-width: 768px) {
       header .title {
+        margin-top: 25px;
         display: inline-block;
-        font-size: 30px; } }
+        font-size: 36px; } }
   header .btn-group {
     display: flex;
     justify-content: center; }
@@ -5958,7 +5966,7 @@ header {
         display: inline-block;
         float: right; }
         header .btn-group > a {
-          margin-top: 15px; } }
+          margin-top: 25px; } }
 
 .stopwatch-settings {
   display: flex;
@@ -5969,15 +5977,15 @@ header {
     width: 50%;
     min-height: 1px;
     padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
     padding-right: 15px; }
-    @media screen and (min-width: 768px) {
+    @media (min-width: 768px) {
       .stopwatch-settings > div {
-        position: relative;
         float: left;
-        width: 25%;
-        min-height: 1px;
-        padding-left: 15px;
-        padding-right: 15px; } }
+        width: 25%; } }
 
 #empty-timeline h2 {
   margin-top: 30px;

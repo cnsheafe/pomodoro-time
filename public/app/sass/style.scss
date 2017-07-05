@@ -1,42 +1,54 @@
 @import 'modal';
 @import 'timer';
 
-* {
-  font-family: 'Asul', sans-serif;
+$orange: #ff835a;
+// $hdr-color: #ff194d;
+$hdr-color: $orange;
+$bg-color: #fffff2;
+
+body {
+  font-family: 'Rubik', sans-serif;
+  background-color: $bg-color;
+}
+
+
+h1,
+h2,
+h3 {
+  font-family: 'Old Standard TT', serif;
+  font-weight: bold;
 }
 
 header {
-  background-color: #ff194d;
+  background-color: $hdr-color;
   color: $timer-color;
   padding-bottom: 10px;
 
   .title {
-    font-family: 'Kavoon', cursive;
+    font-family: 'Old Standard TT', serif;
     display: flex;
     justify-content: center;
-    font-size: 25px;
+    font-size: 30px;
     margin-top: 15px;
     @media screen and (min-width: 768px) {
+      margin-top: 25px;
       display: inline-block;
-      font-size: 30px;
+      font-size: 36px;
     }
   }
-  // >a {
-  //   float: right;
-  //   margin: 10px 10px auto auto;
-  // }
+
   .btn-group {
     display: flex;
     justify-content: center;
+
     @media screen and (min-width: 768px) {
       display: inline-block;
       float: right;
+
       >a {
-        margin-top: 15px;
+        margin-top: 25px;
       }
     }
-
-
   }
 }
 
@@ -46,9 +58,7 @@ header {
 
   >div {
     @include make-xs-column(6);
-    @media screen and (min-width: 768px) {
-      @include make-xs-column(3);
-    }
+    @include make-sm-column(3);
   }
 }
 
