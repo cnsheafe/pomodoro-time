@@ -6,13 +6,16 @@ $timer-gray: #e0e0e0;
 .timer-wrapper {
   @include make-xs-column(8);
   @include make-xs-column-offset(2);
+  @include make-sm-column(6);
+  @include make-sm-column-offset(3);
+  height: 100%;
   margin-top: 25px;
   position: relative;
-  height: 100%;
-  @media screen and (min-width: 768px) {
-    @include make-xs-column(6);
-    @include make-xs-column-offset(3);
-  }
+}
+
+.landscape-timer-wrapper {
+  @include make-xs-column(4);
+  @include make-xs-column-offset(4);
 }
 
 .timer {
