@@ -1,7 +1,5 @@
 class Timer {
   constructor(container, settings) {
-    // console.log(new MediaQueryList());
-    // console.log(window.matchMedia('min-width: 768px'));
     let mql = window.matchMedia('(max-width: 768px)');
     if(mql.matches) {
       if (window.innerHeight < window.innerWidth) {
@@ -10,27 +8,21 @@ class Timer {
     }
     container.setAttribute('style', `height: ${container.offsetWidth}px`);
 
-      window.addEventListener('resize', event => {
-        console.log('Window resized!');
-      if (mql.matches) {
-        console.log('mql match')
-        if (window.innerHeight < window.innerWidth) {
-          console.log('fuck')
+    window.addEventListener('resize', event => {
+    if (mql.matches) {
+      if (window.innerHeight < window.innerWidth) {
         container.classList.add('landscape-timer-wrapper');
-        }
-        else {
-          container.classList.remove('landscape-timer-wrapper')
-        }
+      }else {
+        container.classList.remove('landscape-timer-wrapper')
       }
-      else if(window.innerHeight < window.innerWidth){
-        console.log('should remove')
-        container.classList.remove('landscape-timer-wrapper');
-      }
-      if(container.offsetWidth > 0) {
+    }else if(window.innerHeight < window.innerWidth){
+      container.classList.remove('landscape-timer-wrapper');
+    }
+
+    if(container.offsetWidth > 0) {
       container.setAttribute('style', `height: ${container.offsetWidth}px`)
-      console.log(container.offsetWidth);
-      }
-    });
+    }
+  });
 
     this.container = container;
     container.innerHTML =
@@ -65,7 +57,6 @@ class Timer {
     this.settings.duration = duration || this.settings.duration;
     this.counter.count = 0;
     this.callback = callback;
-    // this.counter.epoch = performance.now();
     this.timeoutId = setTimeout(() => {
       this.anim.spinnerLeft.cancel();
       this.anim.spinnerRight.cancel();
@@ -82,7 +73,6 @@ class Timer {
       this.anim[animation].pause();
     }
   }
-
 
   draw() {
     this.anim.spinnerLeft = this.container.querySelector('.spinner-left')
@@ -103,6 +93,7 @@ class Timer {
         duration: this.settings.duration/2,
         delay: this.settings.duration/2
       });
+
     this.anim.rightOpa = this.container.querySelector('.spinner-right')
       .animate([
         {opacity: 0},
@@ -111,11 +102,7 @@ class Timer {
       ], {
         duration: this.settings.duration,
         easing: 'steps(2)'
-      })
-    // this.anim.rightOpa.onfinish = () => {
-    //   this.callback.call(this);
-    //   this.anim.spinnerLeft.cancel();
-    // }
+      });
   }
 }
 

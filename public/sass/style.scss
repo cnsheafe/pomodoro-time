@@ -1,9 +1,7 @@
 @import 'bootstrap';
 
-// $green:  #0fff34;
 $green: #0f8630;
 $red: #e57373;
-// $header-color: #ff194d;
 $bg-color: #fbf6e6;
 $orange: #ff835a;
 $header-color: $orange;
@@ -21,6 +19,7 @@ header {
   * {
     background-color: $header-color;
   }
+
 	.navbar-fixed-top {
 		border-bottom: none;
 	}
@@ -82,13 +81,16 @@ main {
         font-size: 32px;
       }
     }
+
     h3 {
       font-size: 22px;
       text-align: center;
+
       @media screen and (min-widht: 768px) {
         font-size: 28px;
       }
     }
+
     p {
       font-size: 16px;
       text-align: center;
@@ -101,6 +103,7 @@ main {
     img.center-block {
       height: 200px;
 			width: 90%;
+
 			@media screen and (min-width: 768px) {
 				height: 400px;
 			}
@@ -144,23 +147,26 @@ main {
 footer {
 
   background-color: $header-color;
+
   .navbar {
     background-color: $header-color;
     border: none;
+
     a {
       display: flex;
       justify-content: flex-end;
       margin-top: 30px;
     }
+
     img {
       width: 24px;
       height: 24px;
     }
   }
+
   h4 {
     color: $green;
     font-weight: bold;
     margin-top: 30px;
   }
-
 }

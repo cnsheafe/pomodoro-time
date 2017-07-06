@@ -6,7 +6,6 @@
   <meta charset="utf-8">
   <meta name="description" content="A Time-management App">
   <meta name="author" content="Christofer Sheafe">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
   <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
   <meta name="application-name" content="PomodoroTime">
   <meta name="keywords" content="Pomodoro,productivity,time,free">
@@ -39,6 +38,7 @@
   <script src="app.min.js" defer></script>
 </head>
 
+<!-- Modals that appear after specific events e.g. timer finish -->
 <div role="modals">
   <div id="feedback-modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
@@ -92,23 +92,6 @@
       </div>
     </div>
   </div>
-  <div id="about-modal" class="modal fade"
-    tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close"
-            data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h3 class="modal-title">About PomodoroTime</h3>
-          <div class="modal-body">
-            <p>PomodoroTime is a productivity app based on the <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">Pomodoro Method</a>. The idea is that work tasks are broken down into short work periods with breaks in between. If you are using an account, the app will also keep track of your work sessions so you can gauge times you work best.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 <body>
@@ -127,11 +110,6 @@
         <a href="#timeline-page"
           id="timeline-button" role="button" data-page="timeline-page" class="btn btn-default hide">
           Timeline</a>
-        <!-- <a href="#about"
-          id="about-button" role="button" class="btn btn-default hide"
-          data-toggle="modal"
-          data-target="#about-modal">
-          What is this?</a> -->
         <a href="../logout"
           class="btn btn-default hide">
           Logout</a>
@@ -187,13 +165,11 @@
     </div>
 
     <div id="timeline-page" class="col-xs-12 center-block page hide">
-      <div id="timeline-container"></div>
-      <div id="empty-timeline" class="hide">
+      <div id="timeline-container" class="timeline-div"></div>
+      <div id="empty-timeline" class="timeline-div hide">
         <h2>Empty! Try a work session to track your progress.</h2>
       </div>
-
     </div>
-
   </main>
 </body>
 </html>

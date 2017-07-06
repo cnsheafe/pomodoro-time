@@ -1,5 +1,4 @@
 function parseCookieString(cookieString, state) {
-  console.log(cookieString);
   if (typeof cookieString === 'string') {
     if (cookieString.length > 0) {
       cookieString.split(';').forEach(pair => {

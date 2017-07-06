@@ -37,11 +37,6 @@
 .modal-body > .nav-tabs .active > a:hover {
   background-color: #f5deb3; }
 
-#login-modal form {
-  background-color: #f5deb3;
-  border-radius: 0 0 4px 4px;
-  padding-left: 10px; }
-
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.
@@ -5990,9 +5985,11 @@ header {
         float: left;
         width: 25%; } }
 
-#empty-timeline h2 {
+.timeline-div {
   margin-top: 30px;
   text-align: center; }
+  .timeline-div h2 {
+    text-align: center; }
 
 .timer-settings .input-group {
   margin-top: 15px; }

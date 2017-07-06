@@ -1,8 +1,6 @@
 @import 'bootstrap';
 
-$green: #0f8630;
-// $timer-color: #0fff34;
-$timer-color: $green;
+$timer-color: #0f8630;
 $timer-gray: #e0e0e0;
 
 .timer-wrapper {
@@ -47,10 +45,9 @@ $timer-gray: #e0e0e0;
 }
 
 .glyphicon-stop {
+
   @extend .glyphicon-play;
 
-  @media screen and (min-width: 768px) {
-  }
 }
 
 %show-right {

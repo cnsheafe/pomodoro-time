@@ -5,8 +5,6 @@ function settingsListener(settings, state) {
 
     state.settings.work = document.getElementById('default-work').value;
     state.settings.break = document.getElementById('default-break').value;
-    console.log(`Work ${state.settings.work}`);
-    console.log(`Break ${state.settings.break}`);
     document.getElementById('countdown-work').setAttribute('value', state.settings.work);
     document.getElementById('countdown-break').setAttribute('value', state.settings.break);
 

@@ -41,7 +41,7 @@ $.ajax({
 .then(data => {
   state.settings = data.settings;
   state.history = data.history;
-  // let buttonLink = document.getElementById('account-interface').querySelector('a');
+
   document.getElementById('account-interface').querySelectorAll('a')
     .forEach(anchor => {
       if(anchor.textContent === 'Login/Demo' || anchor.textContent === 'Signup') {
@@ -51,11 +51,6 @@ $.ajax({
         anchor.classList.toggle('hide')
       }
     })
-  // buttonLink.classList.add('hide');
-  // buttonLink.nextElementSibling.textContent = 'Logout';
-  // let settingsButton = document.getElementById('settings-button');
-  // settingsButton.classList.remove('hide');
-  // document.getElementById('timeline-button').classList.remove('hide');
 
   document.getElementById('countdown-work').setAttribute('value', state.settings.work);
   document.getElementById('countdown-break').setAttribute('value', state.settings.break);
