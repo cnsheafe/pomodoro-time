@@ -56,6 +56,11 @@ $.ajax({
   document.getElementById('countdown-break').setAttribute('value', state.settings.break);
 });
 
+setTimeout(function() {
+      const container = document.getElementById('timer-module');
+      container.setAttribute('style', `height: ${container.offsetWidth}px`)
+    }, 1000);
+
 let navControls = document.getElementById('nav-controls');
 navListener(navControls, state);
 
