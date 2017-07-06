@@ -5884,7 +5884,7 @@ main {
       width: 90%; }
       @media screen and (min-width: 768px) {
         main .row img.center-block {
-          height: 400px; } }
+          height: 600px; } }
   main .timeline-img {
     height: auto;
     width: 100%; }
