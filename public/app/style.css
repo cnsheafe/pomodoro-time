@@ -8,7 +8,7 @@
 
 .modal-button {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   margin-top: 10px; }
 
 .form-mood {
@@ -5932,6 +5932,9 @@ button.close {
 
 form.timer, form.timer-button {
   z-index: 600; }
+
+.modal-title {
+  text-align: center; }
 
 body {
   font-family: 'Rubik', sans-serif;

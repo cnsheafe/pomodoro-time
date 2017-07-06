@@ -6,6 +6,10 @@ $orange: #ff835a;
 $hdr-color: $orange;
 $bg-color: #fffff2;
 
+.modal-title {
+	text-align: center;
+}
+
 body {
   font-family: 'Rubik', sans-serif;
   background-color: $bg-color;
