@@ -21,6 +21,9 @@ header {
   * {
     background-color: $header-color;
   }
+	.navbar-fixed-top {
+		border-bottom: none;
+	}
 }
 
 .title-bar {
@@ -67,8 +70,7 @@ header {
 }
 
 main {
-  margin-top: 100px; //Navbar overlaps, a margin is needed
-
+  margin-top: 65px; //Navbar overlaps, a margin is needed
   .row {
     margin-bottom: 30px;
 
@@ -97,8 +99,11 @@ main {
     }
 
     img.center-block {
-      height: auto;
-      width: 75%;
+      height: 200px;
+			width: 90%;
+			@media screen and (min-width: 768px) {
+				height: 400px;
+			}
     }
   }
 

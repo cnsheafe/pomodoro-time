@@ -5815,6 +5815,8 @@ h1 {
 
 header * {
   background-color: #ff835a; }
+header .navbar-fixed-top {
+  border-bottom: none; }
 
 .title-bar {
   color: #0f8630;
@@ -5856,7 +5858,7 @@ header * {
       margin-right: 15px; }
 
 main {
-  margin-top: 100px; }
+  margin-top: 65px; }
   main .row {
     margin-bottom: 30px; }
     main .row h2 {
@@ -5878,8 +5880,11 @@ main {
         main .row p {
           font-size: 22px; } }
     main .row img.center-block {
-      height: auto;
-      width: 75%; }
+      height: 200px;
+      width: 90%; }
+      @media screen and (min-width: 768px) {
+        main .row img.center-block {
+          height: 400px; } }
   main .timeline-img {
     height: auto;
     width: 100%; }
